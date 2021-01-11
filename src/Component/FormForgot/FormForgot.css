@@ -1,0 +1,15 @@
+.input-costum{
+    height: 55px !important;
+    border-radius: 13px !important;
+}
+
+.checkbox-costum{
+    background-color: #5F2EEA !important;
+    width: 20px !important;
+    height: 20px  !important;
+}
+
+.btn-costum-color{
+    background-color: #5F2EEA;
+    color: white;
+}

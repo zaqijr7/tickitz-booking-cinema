@@ -1,0 +1,128 @@
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.container-main{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.btn-booknow{
+    background-color: #5F2EEA;
+    font-weight: 600;
+    width: 134px !important;
+    height: 40px !important;
+}
+
+.btn-search{
+    background-color: #5F2EEA;
+    font-weight: 600;
+}
+
+.navbar-right{
+    margin-right: 110px;
+}
+
+.navbar-item-3{
+    margin-right: 100px;
+}
+
+.navbar-item-2{
+    margin-right: 20px;
+}
+
+.content-row-1{
+    height: 580px;
+}
+
+.content-row-2{
+    height: 540px;
+}
+
+.content-row-3{
+    height: 700px;
+}
+
+.title-row-1{
+    /* line-height: 30px; */
+    font-size: 24px;
+    color: #A0A3BD;
+}
+
+.title-row-1-1{
+    font-weight: 600;
+    font-size: 40px;
+    color: #5F2EEA;
+}
+
+.font-color-costums {
+    color: #5F2EEA;
+}
+
+.border-showing{
+    width: 100px;
+    border: 2px solid #5F2EEA;
+}
+
+.cover-movie{
+    width: 223px;
+    height: 308px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.thumbnail-movie {
+    background-image:url('../../Assets/Images/thumb-film/spiderman.png');
+    background-size: cover;
+    background-position: center;
+    width: 159px; 
+    height: 244px; 
+    border-radius: 8px;
+}
+
+.main-row-4{
+    height: 372px;
+    width: 1106px;
+}
+
+.sub-title-main-row-4{
+    line-height: 27.5px;
+    font-size: 24px;
+    letter-spacing: 0.1px;
+    color: #4E4B66;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .navbar-brand-costum{
+        margin-left: 15px;
+        margin-right: 40px;
+        transition: 0.5s;
+    }
+    .navbar-right{
+        margin: 0px;
+        padding: 15px;
+    }
+    .nav-item-collapse{
+       text-align: center;
+       padding: 15px;
+    }
+    .cover-carousel{
+        width: 156.1px;
+        height: 215.6px;
+        padding: 0px 20px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    }
+    .history-show {
+        padding: 15px;
+    }
+    .cover-upcoming{
+        width: 156.1px;
+        height: 380px;
+        padding-top: 22px;
+    }
+}

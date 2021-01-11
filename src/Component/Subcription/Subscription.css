@@ -1,0 +1,32 @@
+.main-row-4{
+    height: 372px;
+    width: 1106px;
+}
+
+.sub-title-main-row-4{
+    line-height: 27.5px;
+    font-size: 24px;
+    letter-spacing: 0.1px;
+    color: #4E4B66;
+}
+
+.title-main-row-4{
+    line-height: 10px;
+    font-size: 48px;
+    letter-spacing: 0.1px;
+}
+
+.btn-join-now{
+    width: 120px;
+    height: 53px;
+    background-color: #5F2EEA !important;
+}
+
+.input-email-join-now{
+    width: 306px;
+    height: 53px;
+}
+
+.input-hover:hover{
+    border: 2px solid #5F2EEA;
+}

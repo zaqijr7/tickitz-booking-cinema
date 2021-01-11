@@ -1,0 +1,8 @@
+.input-group-pass{
+    position: relative;
+}
+
+.icon-eye{
+    position: absolute;
+    cursor: pointer;
+}

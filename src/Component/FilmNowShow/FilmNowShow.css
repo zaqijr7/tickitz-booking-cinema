@@ -1,0 +1,61 @@
+.cover-carousel{
+    width: 223px;
+    height: 308px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.cover-carousel:hover{
+    border: 2px solid #5F2EEA;
+}
+
+.carousel-1 {
+    background-image:url('../../Assets/Images/thumb-film/spiderman.png');
+    background-size: cover;
+    background-position: center;
+    width: 159px; 
+    height: 244px; 
+    border-radius: 8px;
+}
+
+.carousel-2 {
+    background-image:url('../../Assets/Images/thumb-film/lion-king.png');
+    background-size: cover;
+    background-position: center;
+    width: 159px; 
+    height: 244px; 
+    border-radius: 8px;
+}
+
+.carousel-3 {
+    background-image:url('../../Assets/Images/thumb-film/jhon-wick.png');
+    background-size: cover;
+    background-position: center;
+    width: 159px; 
+    height: 244px; 
+    border-radius: 8px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .history-show {
+        padding: 15px;
+    }
+    .cover-carousel{
+        width: 156.1px;
+        height: 215.6px;
+        padding: 0px 20px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    }
+    .carousel-1 {
+        width: 111.3px; 
+        height: 170.8px;
+    }
+    .carousel-2 {
+        width: 111.3px; 
+        height: 170.8px;
+    }
+    .carousel-3 {
+        width: 111.3px; 
+        height: 170.8px;
+    }
+}

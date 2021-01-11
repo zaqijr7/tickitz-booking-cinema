@@ -1,0 +1,36 @@
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import SectionLeft from '../../../Component/AuthSectionLeft/SectionLeft';
+import Logo from '../../../Assets/Images/logo.png'
+import './Signin.css';
+import FormSignin from '../../../Component/FormSignin/FormSignin';
+
+function Signin(){
+    return(
+        <React.Fragment>
+            <Row className="vw-100">
+                <Col lg={7} className="container-side-right d-none d-lg-block">
+                    <SectionLeft className="d-flex flex-column justify-content-center align-items-center">
+                        <Row>
+                            <div class="logo">
+                                <img src={Logo} alt="logo" class="img-logo"/>
+                            </div>
+                        </Row>
+                        <Row>
+                            <div class="slogan">
+                                <h1 class="text-slogan">wait, watch, wow!</h1>
+                            </div>
+                        </Row>
+                    </SectionLeft>
+                </Col>
+                <Col lg={5} className="px-5 vh-100 overflow-auto">
+                    <Row className="justify-content-center my-5">
+                        <FormSignin/>
+                    </Row>
+                </Col>
+            </Row>
+        </React.Fragment>
+    )
+}
+
+export default Signin;

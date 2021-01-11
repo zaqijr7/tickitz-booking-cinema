@@ -1,0 +1,23 @@
+
+.img-logo {
+    width: 500px;
+    height: 190px;
+    transition: 0.5s;
+}
+
+.text-slogan{
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 48px
+}
+
+@media only screen and (max-width: 1000px) {
+    .img-logo {
+        width: 250px;
+        height: 95px;
+        transition: 0.5s ease-in-out;
+    }
+    .text-slogan{
+        font-size: 28px;
+        transition: 0.5s;
+    }  
+}

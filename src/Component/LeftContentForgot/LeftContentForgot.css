@@ -1,0 +1,135 @@
+.img-logo {
+    width: 276px;
+    height: 104px;
+    transition: 0.5s;
+}
+
+.title {
+    margin-top: 20px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 43px;
+    line-height: 60px;
+    letter-spacing: 0.003em;
+    transition: 0.5s;
+}
+
+.paragraph-main {
+    font-family: Mulish;
+    font-size: 19px;
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 15px;
+}
+
+.container-list-timeline {
+    font-family: Mulish;
+    font-size: 19px;
+    line-height: 30px;
+    position: relative;
+    letter-spacing: 0.005em;
+}
+
+.round {
+    height: 50px;
+    width: 50px;
+    margin-right: 30px;
+}
+
+.list-margin {
+    margin-bottom: 30px;
+}
+
+.line-timeline-1 {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    height: 33px;
+    width: 1px;
+    border: 2px solid white;
+}
+
+.line-timeline-2 {
+    position: absolute;
+    top: 130px;
+    left: 24px;
+    height: 33px;
+    width: 1px;
+    border: 2px solid white;
+}
+
+.line-timeline-3 {
+    position: absolute;
+    top: 207px;
+    left: 24px;
+    height: 33px;
+    width: 1px;
+    border: 2px solid white;
+}
+
+.list-1{
+    margin-bottom: 30px;
+}
+
+.text-timeline-forgotpass{
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media only screen and (max-width: 768px) {
+    .img-logo {
+        width: 138px;
+        height: 52px;
+        transition: 0.5s ease-in-out;
+    }
+    .title {
+        font-size: 24px;
+        margin-top: 10px;
+        transition: 0.5s ease;
+    }
+    .paragraph-main {
+        font-size: 18px;
+        margin-top: 14px;
+        line-height: 30px;
+        transition: 0.5s;
+    }
+    .container-list-timeline {
+        font-size: 18px;
+        margin-top: 14px;
+        transition: 0.5s;
+    }
+    .round {
+        height: 35px;
+        width: 35px;
+        margin-right: 20px;
+        transition: 0.5s;
+    }
+    .list-margin {
+        margin-bottom: 35px;
+    }
+    .line-timeline-1 {
+        position: absolute;
+        top: 35px;
+        left: 15px;
+        height: 38px;
+        width: 1px;
+        border: 2px solid white;
+    }
+    
+    .line-timeline-2 {
+        position: absolute;
+        top: 105px;
+        left: 15px;
+        height: 36px;
+        width: 1px;
+        border: 2px solid white;
+    }
+    .line-timeline-3 {
+        position: absolute;
+        top: 174px;
+        left: 16px;
+        height: 36px;
+        width: 1px;
+        border: 2px solid white;
+    }
+  }
