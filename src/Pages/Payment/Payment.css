@@ -1,39 +1,43 @@
-.bg-body{
-    background-color: #4d4e50 !important;
+.body{
+    background-color: #F5F6F8;
+    color: #4E4B66;
+    font-family: Mulish;
+}
+
+.btn-search{
+    background-color: #5F2EEA;
+    font-weight: 600;
 }
 
 .font-color-costum{
-    color: #5F2EEA !important;
+    color: #5F2EEA;
 }
 
 .btn-change_movie{
     border-radius: 8px;
-    background-color: #EFF0F7 !important;
-    width: 162px !important;
-    height: 48px !important;
+    background-color: #EFF0F7;
+    width: 162px;
+    height: 48px;
+}
+
+.btn-payment{
+    height: 56px;
+    width: 132px;
+    border-radius: 8px;
 }
 
 .seat-layout{
-    width: 26px !important;
-    height: 26px !important;
+    width: 26px;
+    height: 26px;
     border-radius: 4px;
 }
-
 
 .seat-layout_love-nest{
-    width: 60px !important;
-    height: 26px !important;
+    width: 60px;
+    height: 26px;
     border-radius: 4px;
 }
 
-.btn-seat:hover{
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.btn-seat:active {
-    opacity: 1;
-  }
 
 .seat-number{
     width: 30px;
@@ -42,19 +46,19 @@
 }
 
 .bg-gray-light{
-    background-color:#D6D8E7 !important;
+    background-color:#D6D8E7;;
 }
 
 .bg-dark-ash{
-    background-color: #6E7191 !important;
+    background-color: #6E7191;
 }
 
 .bg-theme{
-    background-color: #5F2EEA !important;
+    background-color: #5F2EEA;;
 }
 
 .bg-pink{
-    background-color: #F589D7 !important;
+    background-color: #F589D7;;
 }
 
 .number-position{
@@ -67,7 +71,11 @@
 }
 
 .border-theme{
-    border: 3px solid #5F2EEA !important;
+    border: 3px solid #5F2EEA;
+}
+
+.warning-div{
+    background-color: rgba(244, 183, 64, 0.3);
 }
 
 

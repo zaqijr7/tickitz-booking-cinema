@@ -7,6 +7,8 @@ import Signup from '../Pages/Authentication/Signup/Signup';
 import Home from '../Pages/Home/Home';
 import MovieDetail from '../Pages/MovieDetail/MovieDetail';
 import Order from '../Pages/Order/Order';
+import Payment from '../Pages/Payment/Payment';
+import Ticket from '../Pages/Ticket/Ticket';
 
 
 class Router extends Component{
@@ -36,6 +38,16 @@ class Router extends Component{
                     <Route exact path='/order'>  
                         <NavigationBar> 
                             <Order />
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/payment'>  
+                        <NavigationBar> 
+                            <Payment />
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/ticket'>  
+                        <NavigationBar> 
+                            <Ticket />
                         </NavigationBar>
                     </Route>
             </Switch>

@@ -1,0 +1,115 @@
+.body{
+    color: #4E4B66;
+    font-family: Mulish;
+}
+
+.btn-search{
+    background-color: #5F2EEA;
+    font-weight: 600;
+}
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.btn-change_movie{
+    border-radius: 8px;
+    background-color: #EFF0F7;
+    width: 162px;
+    height: 48px;
+}
+
+
+.bg-gray-light{
+    background-color:#D6D8E7;;
+}
+
+.bg-dark-ash{
+    background-color: #6E7191;
+}
+
+.bg-theme{
+    background-color: #5F2EEA;;
+}
+
+.bg-pink{
+    background-color: #F589D7;;
+}
+
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.border-theme{
+    border: 3px solid #5F2EEA;
+}
+
+.ticket-logo{
+    height: 55.8px;
+    width: 145.8px;
+}
+
+.border-rad_inward-top {
+    display: block;
+    position: absolute;
+    top: -40%;
+    left: 97%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.border-rad_inward-bottom {
+    display: block;
+    position: absolute;
+    top: 91%;
+    left: 97%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dorder-dash{
+    border-right: 3px dashed #dedede;
+}
+
+.border-rad_top-left{
+    border-top-left-radius: 16px;
+}
+
+.border-rad_top-right{
+    border-top-right-radius: 16px;
+}
+
+.border-rad_end-left{
+    border-end-start-radius: 16px;;
+}
+
+.border-rad_end-right{
+    border-end-end-radius: 16px;
+}
+
+.bar-code{
+    width: 70px;
+    height: 70px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar-brand-costum{
+        margin-left: 15px;
+        margin-right: 40px;
+        transition: 0.5s;
+    }
+    .navbar-right{
+        margin: 0px;
+        padding: 15px;
+    }
+    .nav-item-collapse{
+       text-align: center;
+       padding: 15px;
+    }
+    
+    /* .navbar-right-collapse{
+    } */
+}

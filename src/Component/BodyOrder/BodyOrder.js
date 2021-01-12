@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import CineOne from '../../Assets/Images/cineone.png'
 
 
@@ -42,73 +43,73 @@ function BodyOrder() {
                                         <Card.Body className=" py-3 px-1">
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">A</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">B</div>
-                                                <div className="seat-layout  bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat  bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
-                                                <div className="seat-layout text-center">C</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat text-center">C</div>
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
-                                                <div className="seat-layout text-center">D</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat text-center">D</div>
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">E</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">F</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">G</div>
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center" />
@@ -129,86 +130,86 @@ function BodyOrder() {
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">A</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">B</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout  bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat  bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">C</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-theme" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-theme" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">D</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">E</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="row gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">F</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout_love-nest bg-pink" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout_love-nest btn-seat bg-pink" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="d-lg-none seat-layout text-center">G</div>
                                                 <div className="d-none d-lg-block seat-layout text-center" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-gray-light" />
-                                                <div className="seat-layout bg-dark-ash position-relative">
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div className="seat-layout btn-seat bg-dark-ash position-relative">
                                                     <p className="position-absolute number-position">10</p>
                                                 </div>
-                                                <div className="seat-layout bg-gray-light position-relative">
+                                                <div className="seat-layout btn-seat bg-gray-light position-relative">
                                                     <p className="position-absolute number-position">11</p>
                                                 </div>
-                                                <div className="seat-layout bg-gray-light position-relative">
+                                                <div className="seat-layout btn-seat bg-gray-light position-relative">
                                                     <p className="position-absolute number-position">12</p>
                                                 </div>
-                                                <div className="seat-layout bg-gray-light position-relative">
+                                                <div className="seat-layout btn-seat bg-gray-light position-relative">
                                                     <p className="position-absolute number-position">13</p>
                                                 </div>
-                                                <div className="seat-layout bg-gray-light position-relative">
+                                                <div className="seat-layout btn-seat bg-gray-light position-relative">
                                                     <p className="position-absolute number-position">14</p>
                                                 </div>
                                             </Row>
@@ -216,11 +217,11 @@ function BodyOrder() {
                                                 <div className="seat-layout text-center" />
                                                 <div className="seat-layout text-start">8</div>
                                                 <div className="seat-layout text-start">9</div>
-                                                <div className="seat-layout text-center" />
-                                                <div className="seat-layout text-center" />
-                                                <div className="seat-layout text-center" />
-                                                <div className="seat-layout text-center" />
-                                                <div className="seat-layout text-center" />
+                                                <div className="seat-layout btn-seat text-center" />
+                                                <div className="seat-layout btn-seat text-center" />
+                                                <div className="seat-layout btn-seat text-center" />
+                                                <div className="seat-layout btn-seat text-center" />
+                                                <div className="seat-layout btn-seat text-center" />
                                             </Row>
                                         </Card.Body>
                                     </Card>
@@ -247,11 +248,11 @@ function BodyOrder() {
                     </Row>
                     <Row className="my-4">
                         <Col md={12} lg={5} className="d-grid p-0  my-3 my-lg-0">
-                            <button className="border-theme fw-bold font-color-costum rounded py-2">Change your movie</button>
+                            <Link className="btn border-theme fw-bold font-color-costum rounded py-2" to="/"> Change your movie </Link>
                         </Col>
                         <Col lg={2} className="d-lg-block d-none" />
                         <Col md={12} lg={5} className="d-grid p-0 my-3 my-lg-0">
-                            <button className="bg-theme text-white fw-bold rounded py-2 border-0">Book Now</button>
+                            <Link className="btn bg-theme text-white fw-bold rounded py-2 border-0" to="/payment">Book Now</Link>
                         </Col>
                     </Row>
                 </Col>

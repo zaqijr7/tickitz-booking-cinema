@@ -25,7 +25,7 @@ function NavigationBar({children}){
                 <Container fluid>
                     <Navbar collapseOnSelect expand="lg" bg="trasnparent" variant="light">
                         <Navbar.Brand href="#home" className="ms-lg-5 me-lg-3">
-                            <img src={navbarBrand}/>
+                            <Link to="/"> <img src={navbarBrand}/> </Link> 
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
