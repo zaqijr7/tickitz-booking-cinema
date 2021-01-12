@@ -6,6 +6,7 @@ import Signin from '../Pages/Authentication/Signin/Signin';
 import Signup from '../Pages/Authentication/Signup/Signup';
 import Home from '../Pages/Home/Home';
 import MovieDetail from '../Pages/MovieDetail/MovieDetail';
+import Order from '../Pages/Order/Order';
 
 
 class Router extends Component{
@@ -30,6 +31,11 @@ class Router extends Component{
                     <Route exact path='/moviedetail'>  
                         <NavigationBar> 
                             <MovieDetail/>
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/order'>  
+                        <NavigationBar> 
+                            <Order />
                         </NavigationBar>
                     </Route>
             </Switch>

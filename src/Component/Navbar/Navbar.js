@@ -79,7 +79,7 @@ function NavigationBar({children}){
                     </Navbar>
                 </Container>
 
-                <div className="container py-2">
+                <div className="p-0">
                     {children}
                 </div>
             </React.Fragment>

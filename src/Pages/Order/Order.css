@@ -1,0 +1,82 @@
+.bg-body{
+    background-color: #4d4e50 !important;
+}
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.btn-change_movie{
+    border-radius: 8px;
+    background-color: #EFF0F7 !important;
+    width: 162px !important;
+    height: 48px !important;
+}
+
+.seat-layout{
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 4px;
+}
+
+.seat-layout_love-nest{
+    width: 60px !important;
+    height: 26px !important;
+    border-radius: 4px;
+}
+
+
+.seat-number{
+    width: 30px;
+    height: 26px;
+    border-radius: 4px;
+}
+
+.bg-gray-light{
+    background-color:#D6D8E7;;
+}
+
+.bg-dark-ash{
+    background-color: #6E7191;
+}
+
+.bg-theme{
+    background-color: #5F2EEA;;
+}
+
+.bg-pink{
+    background-color: #F589D7;;
+}
+
+.number-position{
+    left: 4px; 
+    top: 34px;
+}
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.border-theme{
+    border: 3px solid #5F2EEA;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .navbar-brand-costum{
+        margin-left: 15px;
+        margin-right: 40px;
+        transition: 0.5s;
+    }
+    .navbar-right{
+        margin: 0px;
+        padding: 15px;
+    }
+    .nav-item-collapse{
+       text-align: center;
+       padding: 15px;
+    }
+    
+    /* .navbar-right-collapse{
+    } */
+}

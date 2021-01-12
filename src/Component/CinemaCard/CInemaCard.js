@@ -3,6 +3,7 @@ import { Card, Row, Col, Container } from 'react-bootstrap';
 import EbvIdLogo from '../../Assets/Images/ebu.id.png';
 import CineOneLogo from '../../Assets/Images/cineone.png';
 import HiflixLogo from '../../Assets/Images/hiflix.png';
+import { Link } from 'react-router-dom';
 
 const cinemaList =[
     {cinema: EbvIdLogo, name: 'ebv.id', address:'Whatever street No.12, South Purwokerto'},
@@ -17,7 +18,7 @@ function CinemaCard() {
                     cinemaList.map((value, index) => {
                         return (
                             <Col lg={4}>
-                                <Card className="border rounded my-4 my-lg-0" key={index}>
+                                <Card className="border rounded my-4 my-lg-0 card-shadow" key={index}>
                                     <Card.Body className="py-4 px-1">
                                         <Container>
                                             <Row className="border-3">
@@ -68,7 +69,9 @@ function CinemaCard() {
                                             </Row>
                                             <Row className="mt-4">
                                                 <Col xs={6} className="d-flex justify-content-center align-items-center">
-                                                    <button className="btn-booknow text-white border-0 rounded-3" href="../order/">Book Now</button>
+                                                    <Link to="/order">
+                                                        <button className="btn-booknow text-white border-0 rounded-3">Book Now</button>
+                                                    </Link> 
                                                 </Col>
                                                 <Col xs={6} className="d-flex justify-content-end">
                                                     <p className="text-right fw-bold font-color-costums">Add To Cart</p>
