@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
+import './Profile.css'
+import BodyProfile from '../../Component/BodyProfile/BodyProfile';
 import { Container } from 'react-bootstrap';
 import Footer from '../../Component/Footer/Footer';
-import TicketCard from '../../Component/TicketCard/TicketCard';
-import './Ticket.css';
 
-export default class Ticket extends Component {
+export default class Profile extends Component {
     render() {
         return (
             <>
-            <div className="bg-theme">
-                <TicketCard/>
+            <div className="body py-5">
+                <BodyProfile/>
             </div>
             <Container>
-                 <Footer/>
+                <Footer/>
             </Container>
             </>
         )

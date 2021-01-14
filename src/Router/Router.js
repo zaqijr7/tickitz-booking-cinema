@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NavigationBar from '../Component/Navbar/Navbar';
+import Admin from '../Pages/Admin/Admin';
 import ForgotPass from '../Pages/Authentication/Forgot-Pass/ForgotPass';
 import Signin from '../Pages/Authentication/Signin/Signin';
 import Signup from '../Pages/Authentication/Signup/Signup';
 import Home from '../Pages/Home/Home';
 import MovieDetail from '../Pages/MovieDetail/MovieDetail';
 import Order from '../Pages/Order/Order';
+import OrderHistory from '../Pages/OrderHistory/OrderHistory';
 import Payment from '../Pages/Payment/Payment';
+import Profile from '../Pages/Profile/Profile';
 import Ticket from '../Pages/Ticket/Ticket';
 
 
@@ -48,6 +51,21 @@ class Router extends Component{
                     <Route exact path='/ticket'>  
                         <NavigationBar> 
                             <Ticket />
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/profile'>  
+                        <NavigationBar> 
+                            <Profile/>
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/order-history'>  
+                        <NavigationBar> 
+                            <OrderHistory/>
+                        </NavigationBar>
+                    </Route>
+                    <Route exact path='/admin'>  
+                        <NavigationBar> 
+                            <Admin/>
                         </NavigationBar>
                     </Route>
             </Switch>

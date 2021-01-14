@@ -1,0 +1,131 @@
+.body{
+    color: #4E4B66;
+    font-family: Mulish;
+}
+
+.photo-profile {
+    width: 136px !important;
+    height: auto !important;
+}
+
+.card-loyalti {
+    background-image: linear-gradient(to right, #5F2EEA, #926bff); 
+    overflow: hidden;
+    box-shadow: 0px 10px 3px rgba(95, 46, 234, 0.4);
+    
+}
+
+.progress-bar {
+    width: 248px;
+    height: 16px;
+    background: #F5F6F8 !important;
+    box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
+    border-radius: 8px;
+}
+
+.progress-value {
+    height: 100%;
+    width: 126px;
+    background: #5F2EEA !important;
+    border-radius: 8px;
+
+}
+
+.circle-card-1 {
+    top: -39%;
+    right: -5%;
+    width: 130px !important;
+    height: 130px !important;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.circle-card-2 {
+    top: -18%;
+    right: -14%;
+    width: 130px !important;
+    height: 130px !important;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.star-icon {
+    z-index: 2;
+}
+
+.profile-bar {
+    height: 100%;
+    border-bottom: 2px solid  #5F2EEA;
+}
+
+.btn-ticket {
+    width: 196px;
+    height: 40px;
+}
+
+.btn-update{
+    background-color: #5F2EEA !important;
+}
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.btn-change_movie{
+    border-radius: 8px;
+    background-color: #EFF0F7;
+    width: 162px;
+    height: 48px;
+}
+
+
+.bg-gray-light{
+    background-color:#D6D8E7;;
+}
+
+.bg-dark-ash{
+    background-color: #6E7191;
+}
+
+.bg-theme{
+    background-color: #5F2EEA;;
+}
+
+.bg-pink{
+    background-color: #F589D7;;
+}
+
+
+.font-color-costum{
+    color: #5F2EEA;
+}
+
+.border-theme{
+    border: 3px solid #5F2EEA;
+}
+
+.ticket-logo{
+    height: 55.8px;
+    width: 145.8px;
+}
+
+.form-profile {
+    height: 55px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar-brand-costum{
+        margin-left: 15px;
+        margin-right: 40px;
+        transition: 0.5s;
+    }
+    .navbar-right{
+        margin: 0px;
+        padding: 15px;
+    }
+    .nav-item-collapse{
+       text-align: center;
+       padding: 15px;
+    }
+    
+    /* .navbar-right-collapse{
+    } */
+}

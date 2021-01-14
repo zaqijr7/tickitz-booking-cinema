@@ -1,0 +1,10 @@
+/* .thumbnail {
+    width: 249px !important; 
+    height: 344px !important;
+    padding: 20px;
+} */
+
+.movie-thumbnail {
+    width: 177px !important;
+    height: auto !important;
+}
