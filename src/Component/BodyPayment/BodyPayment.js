@@ -101,7 +101,7 @@ function BodyPayment({children}) {
                     </Col>
                     <Col lg={2} className="d-lg-block d-none" />
                     <Col className="d-grid p-0 my-2 mt-lg-3 mb-lg-5">
-                        <a className="btn bg-theme text-white fw-bold rounded py-2" href="../ticket/">Pay your order</a>
+                        <Link className="btn bg-theme text-white fw-bold rounded py-2" to="/ticket">Pay your order</Link>
                     </Col>
                 </Row>
             </Col>
