@@ -24,14 +24,14 @@ function NavigationBar({children}){
         <React.Fragment>
                 <Container fluid>
                     <Navbar collapseOnSelect expand="lg" bg="trasnparent" variant="light">
-                        <Navbar.Brand href="#home" className="ms-lg-5 me-lg-3">
-                            <Link to="/"> <img src={navbarBrand}/> </Link> 
+                        <Navbar.Brand className="ms-lg-5 me-lg-3">
+                            <Link to="/"> <img src={navbarBrand} alt="brand logo"/> </Link> 
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto text-lg-start text-center">
                                 <Nav.Link className="mx-2 py-3 py-lg-0">
-                                    <NavLink exact to="/" activeClassName="text-muted" className="text-decoration-none text-dark">Movies</NavLink>
+                                    <NavLink  exact to="/" activeClassName="text-muted" className="text-decoration-none text-dark">Movies</NavLink>
                                 </Nav.Link>
                                 <Nav.Link className="mx-2 py-3 py-lg-0">
                                     <NavLink to="/moviedetail" activeClassName="text-muted" className="text-decoration-none text-dark">Cinemas</NavLink> 
@@ -42,13 +42,13 @@ function NavigationBar({children}){
                             </Nav>
                             <Nav className="justify-content-end col d-flex align-items-center">
                                 <NavDropdown title="Location" id="collasible-nav-dropdown" className="py-2 py-lg-0 mx-lg-2 text-dark">
-                                    <NavDropdown.Item href="#action/3.1" className="fw-bold">Jakarta</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="fw-bold">Bandung</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3" className="fw-bold">Samarinda</NavDropdown.Item>
+                                    <NavDropdown.Item className="fw-bold">Jakarta</NavDropdown.Item>
+                                    <NavDropdown.Item className="fw-bold">Bandung</NavDropdown.Item>
+                                    <NavDropdown.Item className="fw-bold">Samarinda</NavDropdown.Item>
                                 </NavDropdown>
                                 <Nav.Link className="py-2 py-lg-0 mx-lg-2"> 
-                                    <Link variant="primary" onClick={handleShow} className="fas fa-search text-muted text-decoration-none">
-                                    </Link>
+                                    <i variant="primary" onClick={handleShow} className="fas fa-search text-muted text-decoration-none">
+                                    </i>
                                     <Modal show={show} onHide={handleClose}>
                                         <Modal.Header >
                                         <Modal.Title>Search</Modal.Title>

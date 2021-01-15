@@ -21,14 +21,14 @@ export default class TicketCard extends Component {
                                     <Col xs={6} className="d-flex align-items-center bg-theme position-relative border-rad_out dorder-dash px-4 border-rad_top-left">
                                         <div className="border-rad_inward-top bg-light" />
                                         <Col>
-                                            <img src={Logo} className="ticket-logo" alt srcSet />
+                                            <img src={Logo} className="ticket-logo" alt="icon" />
                                         </Col>
                                         <Col className="d-flex align-items-center justify-content-end text-white">
                                             Admit One
                                         </Col>
                                     </Col>
                                     <Col xs={4} className="d-flex justify-content-center align-items-center bg-theme border-rad_top-right">
-                                        <img src={Logo} className="ticket-logo" alt srcSet />
+                                        <img src={Logo} className="ticket-logo" alt="icon" />
                                     </Col>
                                 </Row>
                                 <Row className="row justify-content-center">
@@ -98,9 +98,9 @@ export default class TicketCard extends Component {
                                                 </Row>
                                             </Col>
                                             <Col xs={3} className="d-flex flex-column p-0">
-                                                <img src={Barcode} className="bar-code" alt srcSet />
-                                                <img src={Barcode} className="bar-code" alt srcSet />
-                                                <img src={Barcode} className="bar-code" alt srcSet />
+                                                <img src={Barcode} className="bar-code" alt="icon" />
+                                                <img src={Barcode} className="bar-code" alt="icon" />
+                                                <img src={Barcode} className="bar-code" alt="icon" />
                                             </Col>
                                         </Row>
                                     </Col>

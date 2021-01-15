@@ -46,7 +46,7 @@ function UpcomingMovie() {
                         {
                             listMonth.map((value, index) => {
                                 return (
-                                    <Col className="mx-3 d-flex justify-content-center align-items-center" key={index}>
+                                    <Col className="mx-3 d-flex justify-content-center align-items-center" key={index.toString()}>
                                         <button className="btn-month font-color-costums fw-bolder rounded" type="submit">{value}</button>
                                     </Col>
                                 )

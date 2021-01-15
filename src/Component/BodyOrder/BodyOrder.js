@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import CineOne from '../../Assets/Images/cineone.png'
+import { Link, useParams } from 'react-router-dom';
+import cinemaList from '../../DataDummy/CinemaList';
+import DataMovieNowShow from '../../DataDummy/DataMovieNowShow';
 
 
-function BodyOrder() {
+function BodyOrder(props) {
+    const {id, time, idcard} = useParams();
+    const [movie, setMovie] = useState([]);
+    const [cinema, setCinema] = useState([]);
+    const [selectTime, setSelectTime] = useState([]);
+    // const [chooseSeat, setChooseSeat] = useState([]);
+    const getMovieSelect = () => {
+        let movieSelect = DataMovieNowShow.filter((item) => item.id === Number(id));
+        setMovie(movieSelect);
+    }
 
+    const getCardCinema = () => {
+        let selectCard = cinemaList.filter((item) => item.id === Number(idcard));
+        setCinema(selectCard);
+    }
+    const getTime = () => {
+        let chooseTime = cinema.map((e) => e.time);
+        setSelectTime(chooseTime)
+    }
+    const handleClickChooseSeat = (event) => {
+        let newArr = [event.target.id] ;
+        let arrDua = [...newArr];
+        console.log(arrDua);
+    }
+    useEffect(() => {
+        getMovieSelect();
+        getCardCinema();
+        getTime();
+    }, []);
     return(
             <Row className="p-3 px-lg-0">
                 <Col lg={7}>
@@ -17,11 +45,15 @@ function BodyOrder() {
                     <Row>
                         <Col className="bg-white  rounded-3">
                             <div className="py-3 px-3 d-flex align-items-center">
-                                <Col xs={6} className="ms-2">Spider-Man: Homecoming</Col>
+                            <Col xs={6} className="ms-2">
+                                {
+                                    movie.map(item => item.title)
+                                }
+                                 </Col>
                                 <Col xs={6} className="d-flex justify-content-end">
-                                    <a className="btn me-3 btn-change_movie d-flex justify-content-center align-items-center" href="../../">
+                                    <Link className="btn me-3 btn-change_movie d-flex justify-content-center align-items-center" to='/'>
                                         <small className="font-color-costum fw-bold">Change Movie</small> 
-                                    </a>
+                                    </Link>
                                 </Col>
                             </div>
                         </Col>
@@ -43,13 +75,13 @@ function BodyOrder() {
                                         <Card.Body className=" py-3 px-1">
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">A</div>
-                                                <div className="seat-layout btn-seat bg-gray-light" />
-                                                <div className="seat-layout btn-seat bg-gray-light" />
-                                                <div className="seat-layout btn-seat bg-gray-light" />
-                                                <div className="seat-layout btn-seat bg-gray-light" />
-                                                <div className="seat-layout btn-seat bg-gray-light" />
-                                                <div className="seat-layout btn-seat bg-dark-ash" />
-                                                <div className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A1" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A2" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A3" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A4" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A5" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
+                                                <div id="A6" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-dark-ash" />
+                                                <div id="A7" onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat bg-gray-light" />
                                             </Row>
                                             <Row className="gap-2 my-2 justify-content-center">
                                                 <div className="seat-layout text-center">B</div>
@@ -263,63 +295,73 @@ function BodyOrder() {
                         </Col>
                     </Row>
                     <Row className="row">
-                        <Card className="card shadow border-0 rounded my-4 my-lg-0">
-                            <Card.Body className="card-body py-4 px-2">
-                                <Container>
-                                    <Row className="border-3 d-flex flex-column">
-                                        <Col className="d-flex justify-content-center align-items-center mt-2">
-                                            <img src={CineOne} alt srcSet />
-                                        </Col>
-                                        <Col className="text-center my-4">
-                                            <p className="fs-4">CineOne21 Cinema</p>
-                                        </Col>                          
-                                    </Row>                            
-                                    <Row className="my-1">
-                                        <Col xs={4}>
-                                            <small className="text-muted">Movie selected</small>
-                                        </Col>
-                                        <Col xs={8} className="text-end">
-                                            <p className>Spider-Man: Homecoming</p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="my-1">
-                                        <Col xs={5} className="">
-                                            <small className="text-muted">Tuesday, 07 July 2020</small>
-                                        </Col>
-                                        <Col xs={7} className="text-end">
-                                            <p className>02:00pm</p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="my-1">
-                                        <Col xs={5} className="col-5">
-                                            <small className="text-muted">One ticket price</small>
-                                        </Col>
-                                        <Col xs={7} className="col-7 text-end">
-                                            <p className>$10</p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="my-1">
-                                        <Col xs={5}>
-                                            <small className="text-muted">Seat choosed</small>
-                                        </Col>
-                                        <Col xs={7} className="text-end">
-                                            <p className>C4, C5, C6</p>
-                                        </Col>
-                                    </Row>
-                                    <Row className="my-3">
-                                        <hr />
-                                    </Row>
-                                    <Row className="my-1">
-                                        <Col xs={5}>
-                                            <p className="fs-5">Total Payment</p>
-                                        </Col>
-                                        <Col xs={7} className="text-end">
-                                            <p className="fs-5 fw-bold font-color-costum">$30</p>
-                                        </Col>
-                                    </Row>
-                                </Container>
-                            </Card.Body>
-                        </Card>
+                        {
+                            cinema.map((item, index) => {
+                                return (
+                                    <Card className="card shadow border-0 rounded my-4 my-lg-0" key={index}>
+                                        <Card.Body className="card-body py-4 px-2">
+                                            <Container>
+                                                <Row className="border-3 d-flex flex-column">
+                                                    <Col className="d-flex justify-content-center align-items-center mt-2">
+                                                        <img src={item.cinema} alt={item.name} />
+                                                    </Col>
+                                                    <Col className="text-center my-4">
+                                                        <p className="fs-4">{item.name}</p>
+                                                    </Col>                          
+                                                </Row>                            
+                                                <Row className="my-1">
+                                                    <Col xs={4}>
+                                                        <small className="text-muted">Movie selected</small>
+                                                    </Col>
+                                                    <Col xs={8} className="text-end">
+                                                        <p className>
+                                                            {
+                                                                movie.map(item => item.title)
+                                                            }
+                                                        </p>
+                                                    </Col>
+                                                </Row>
+                                                <Row className="my-1">
+                                                    <Col xs={5} className="">
+                                                        <small className="text-muted">Tuesday, 07 July 2020</small>
+                                                    </Col>
+                                                    <Col xs={7} className="text-end">
+                                                        <p className>{selectTime.map((e) => e[time])}</p>
+                                                    </Col>
+                                                </Row>
+                                                <Row className="my-1">
+                                                    <Col xs={5} className="col-5">
+                                                        <small className="text-muted">One ticket price</small>
+                                                    </Col>
+                                                    <Col xs={7} className="col-7 text-end">
+                                                        <p className>$10</p>
+                                                    </Col>
+                                                </Row>
+                                                <Row className="my-1">
+                                                    <Col xs={5}>
+                                                        <small className="text-muted">Seat choosed</small>
+                                                    </Col>
+                                                    <Col xs={7} className="text-end">
+                                                        <p className>C4, C5, C6</p>
+                                                    </Col>
+                                                </Row>
+                                                <Row className="my-3">
+                                                    <hr />
+                                                </Row>
+                                                <Row className="my-1">
+                                                    <Col xs={5}>
+                                                        <p className="fs-5">Total Payment</p>
+                                                    </Col>
+                                                    <Col xs={7} className="text-end">
+                                                        <p className="fs-5 fw-bold font-color-costum">$30</p>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Card.Body>
+                                    </Card>
+                                )
+                            })
+                        }
                     </Row>                    
                 </Col>
             </Row>

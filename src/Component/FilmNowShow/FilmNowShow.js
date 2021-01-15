@@ -1,15 +1,20 @@
 import React from 'react';
 import './FilmNowShow.css';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 function FilmNowShow(props) {
-    return (
+        return (
         <Row>
-            <Link to="/moviedetail">
-            <Col className="cover-carousel mx-3 d-flex justify-content-center align-items-center">
-                <div className={props.className} />
-            </Col>
+            <Link to={`/moviedetail/${props.id}`}>
+                <Col className=" mx-3 d-flex justify-content-center align-items-center">
+                    <Card className="cover-carousel">
+                        <Card.Body className=" d-flex justify-content-center align-items-center">
+                            <img className="carousel" src={props.poster} alt="poster-film"/>
+                        </Card.Body>
+                    </Card>
+                </Col>
             </Link>
         </Row>
     )

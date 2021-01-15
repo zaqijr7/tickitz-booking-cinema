@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Card, Row, Button, Collapse } from 'react-bootstrap';
-import MapIcon from '../../Assets/Images/location.png';
+import { Col, Card, Row, Button } from 'react-bootstrap';
 
 
 export default class CardTicketHistory extends Component { 
@@ -14,7 +13,7 @@ export default class CardTicketHistory extends Component {
                                 <small className='text-muted'>{this.props.time}</small>
                                 <p className="fs-5 fs-bold">{this.props.movie}</p>
                             </div>
-                            <img src={this.props.cinema} />
+                            <img src={this.props.cinema} alt="cinema"/>
                         </Card.Header>
                         <Card.Body className="px-4">
                             <Row className="d-flex justify-content-lg-between align-items-center">

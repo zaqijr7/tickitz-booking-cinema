@@ -16,7 +16,7 @@ function Footer() {
           <Col className="px-5">
             <Row>
               <Col lg={4} className="p-lg-4 mt-5">
-                <img src={LogoFooter} alt srcSet />
+                <img src={LogoFooter} alt="icon" />
                 <p className="text-left text-muted mt-3">Stop waiting in line. Buy tickets <br />
                   conveniently, watch movies quietly.
                 </p>
@@ -33,9 +33,9 @@ function Footer() {
               <Col lg={3} className="p-lg-4 mt-5">
                 <h5 className="fw-bolder">Our Sponsor</h5>
                 <ul className="list-unstyled text-muted">
-                  <li className="my-3"><img src={EbuLogo} alt srcSet /></li>
-                  <li className="my-3"><img src={CineOneLogo} alt srcSet /></li>
-                  <li className="my-3"><img src={HiflixLogo} alt srcSet /></li>
+                  <li className="my-3"><img src={EbuLogo} alt="icon" /></li>
+                  <li className="my-3"><img src={CineOneLogo} alt="icon" /></li>
+                  <li className="my-3"><img src={HiflixLogo} alt="icon" /></li>
                 </ul>
               </Col>
               <Col lg={3} className="p-lg-4 mt-5">
@@ -45,25 +45,25 @@ function Footer() {
                     <ul className="list-unstyled">
                       <li className="d-flex align-items-center">
                         <p>
-                          <img src={FbIcon} className="me-2" alt srcSet /> 
+                          <img src={FbIcon} className="me-2" alt="icon" /> 
                           Tickitz Cinema id
                         </p>
                       </li>
                       <li>
                         <p>
-                          <img src={IgIcon} className="me-2" alt srcSet /> 
+                          <img src={IgIcon} className="me-2" alt="icon" /> 
                           tickitz.id
                         </p>
                       </li>
                       <li>
                         <p>
-                          <img src={TwitIcon} className="me-2" alt srcSet /> 
+                          <img src={TwitIcon} className="me-2" alt="icon" /> 
                           tickitz.id
                         </p>
                       </li>
                       <li>
                         <p>
-                          <img src={YtIcon} className="me-2" alt srcSet /> 
+                          <img src={YtIcon} className="me-2" alt="icon" /> 
                           Tickitz Cinema id
                         </p>
                       </li>

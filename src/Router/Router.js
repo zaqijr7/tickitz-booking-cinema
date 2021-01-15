@@ -33,12 +33,12 @@ class Router extends Component{
                     <Route exact path='/forgotpass'>  
                         <ForgotPass/>
                     </Route>
-                    <Route exact path='/moviedetail'>  
+                    <Route exact path='/moviedetail/:id'>  
                         <NavigationBar> 
                             <MovieDetail/>
                         </NavigationBar>
                     </Route>
-                    <Route exact path='/order'>  
+                    <Route exact path='/order/:id/:time/:idcard'>  
                         <NavigationBar> 
                             <Order />
                         </NavigationBar>
@@ -67,6 +67,11 @@ class Router extends Component{
                         <NavigationBar> 
                             <Admin/>
                         </NavigationBar>
+                    </Route>
+                    <Route exact path='*'>
+                        <NavigationBar> 
+                            <Home/>
+                        </NavigationBar> 
                     </Route>
             </Switch>
         )

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Container, ProgressBar, Row, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card, Col, Row} from 'react-bootstrap';
 import PhotoProfile from '../../Assets/Images/photo-profile/my-photo.jpg';
 
 export default class SideProfileInfo extends Component {
@@ -24,7 +23,7 @@ export default class SideProfileInfo extends Component {
                                         </Col>
                                     </Row>
                                     <Row className="d-flex justify-content-center align-items-center">
-                                        <img src={PhotoProfile} className="photo-profile rounded-circle my-5"/>
+                                        <img src={PhotoProfile} className="photo-profile rounded-circle my-5" alt="profile"/>
                                     </Row>
                                     <Row className="mb-4">
                                         <h5 className="fw-bold text-center">Muhammad Zaqi</h5>

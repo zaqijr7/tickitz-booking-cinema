@@ -10,7 +10,7 @@ function ButtonPayment() {
                     return (
                         <Col xs="auto">
                             <button className="btn btn-payment border border-3 mx-2 my-2" key={value.id}> 
-                            <img src={value.buttonName} alt srcSet /> 
+                            <img src={value.buttonName} alt={value.id} /> 
                             </button>
                         </Col>
                     )

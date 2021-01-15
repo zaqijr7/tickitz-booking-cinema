@@ -90,7 +90,7 @@ function BodyPayment({children}) {
                         </Row>  
                         <Row className="mt-3 text-center">
                             <p>
-                                Pay via cash. <a href="#" className="font-color-costum text-decoration-none">See how it work</a> 
+                                Pay via cash. <Link to='/' className="font-color-costum text-decoration-none">See how it work</Link> 
                             </p>
                         </Row>                       
                     </Col>

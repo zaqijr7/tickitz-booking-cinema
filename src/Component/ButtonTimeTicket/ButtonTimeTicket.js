@@ -19,7 +19,7 @@ function ButtonTimeTicket () {
                         <i className="fas fa-chevron-down position-absolute d-md-block d-lg-none text-muted" style={{left: '92%'}} />
                     </Col> 
                     <Col lg={3} className="position-relative d-flex align-items-center my-sm-4 my-lg-0">
-                        <img src={MapIcon} className=" position-absolute mx-3 text-muted" alt srcSet />                           
+                        <img src={MapIcon} className=" position-absolute mx-3 text-muted" alt="map icon"/>                           
                         <select className="custom-select form-control py-2 ps-5 py-3 border-0 text-muted" id="inputGroupSelect02" style={{backgroundColor: '#f0f0f0'}}>
                         <option selected>Purwokerto</option>
                         <option value={1}>Bandung</option>

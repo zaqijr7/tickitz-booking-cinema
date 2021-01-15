@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class FormAccountSet extends Component {
     render() {
         return (
-        <>
+                <>
                     <Col lg={8} className="my-5 my-lg-0">
                         <Card className="border-0">
                             <Card.Header className="bg-white d-flex pb-0 pt-3 px-4">
@@ -97,7 +97,7 @@ export default class FormAccountSet extends Component {
                             </Card.Body>
                         </Card>
                     </Col>
-        </>
+                </>
         )
     }
 }

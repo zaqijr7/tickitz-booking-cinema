@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './FormSignup.css';
 function FormSignup() {
@@ -55,13 +55,13 @@ function FormSignup() {
                 <div class="d-flex justify-content-center align-items-center mt-2"> 
                     <div class="px-3">
                         <button class="btn shadow-sm bg-white text-muted fw-bolder btn-sign-with d-flex justify-content-center align-items-center btn-costum">
-                            <img src="https://img.icons8.com/fluent/24/000000/google-logo.png" class="me-lg-2"/>
+                            <img src="https://img.icons8.com/fluent/24/000000/google-logo.png" class="me-lg-2" alt="google icon"/>
                             <span className="d-lg-block d-none">Google</span> 
                         </button>
                     </div>
                     <div class="px-3">
                         <button class="btn shadow-sm bg-white text-muted fw-bolder btn-sign-with d-flex justify-content-center align-items-center btn-costum">
-                            <img src="https://img.icons8.com/color/29/000000/facebook-new.png" class="me-lg-2"/>
+                            <img src="https://img.icons8.com/color/29/000000/facebook-new.png" class="me-lg-2" alt="fb icon"/>
                             <span className="d-lg-block d-none">Facebook</span> 
                         </button>
                     </div>

@@ -6,6 +6,7 @@ import RowTitle from '../../Component/HomeComponent/RowTitle';
 import NowShow from '../../Component/NowShow/NowShow';
 import Subcription from '../../Component/Subcription/Subcription';
 import UpcomingMovie from '../../Component/UpcomingMovie/UpcomingMovie';
+import dataMovie from '../../DataDummy/DataMovieNowShow';
 
 
 function Home(){
@@ -14,12 +15,13 @@ function Home(){
             <Container>
                 <RowTitle/>
                 <NowShow>
-                    <FilmNowShow className="carousel-1"/>
-                    <FilmNowShow className="carousel-2"/>
-                    <FilmNowShow className="carousel-3"/>
-                    <FilmNowShow className="carousel-1"/>
-                    <FilmNowShow className="carousel-2"/>
-                    <FilmNowShow className="carousel-3"/>
+                    {
+                    dataMovie.map((value) => {
+                        return (
+                            <FilmNowShow id={value.id} poster={value.poster}/>
+                        )
+                    })
+                    }
                 </NowShow>
                 <UpcomingMovie/>
                 <Subcription/>
