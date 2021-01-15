@@ -10,7 +10,7 @@ function BodyOrder(props) {
     const [movie, setMovie] = useState([]);
     const [cinema, setCinema] = useState([]);
     const [selectTime, setSelectTime] = useState([]);
-    // const [chooseSeat, setChooseSeat] = useState([]);
+    const [chooseSeat, setChooseSeat] = useState([]);
     const getMovieSelect = () => {
         let movieSelect = DataMovieNowShow.filter((item) => item.id === Number(id));
         setMovie(movieSelect);
@@ -25,9 +25,7 @@ function BodyOrder(props) {
         setSelectTime(chooseTime)
     }
     const handleClickChooseSeat = (event) => {
-        let newArr = [event.target.id] ;
-        let arrDua = [...newArr];
-        console.log(arrDua);
+        setChooseSeat(event.target.id)
     }
     useEffect(() => {
         getMovieSelect();
