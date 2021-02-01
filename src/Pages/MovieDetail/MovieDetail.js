@@ -5,18 +5,21 @@ import MovieInfo from '../../Component/MovieInfo/MovieInfo';
 import ButtonTimeTicket from '../../Component/ButtonTimeTicket/ButtonTimeTicket';
 import CinemaCard from '../../Component/CinemaCard/CInemaCard';
 import Footer from '../../Component/Footer/Footer';
+import NavigationBar from '../../Component/Navbar/Navbar';
 
 function MovieDetail() {
     return (
         <React.Fragment>
-            <Container>
-                <MovieInfo/>
-                <ButtonTimeTicket/>
-                <CinemaCard/>
-                <CinemaCard/>
-                <CinemaCard/>
-                <Footer/>
-            </Container> 
+            <NavigationBar>
+                <Container>
+                    <MovieInfo/>
+                    <ButtonTimeTicket/>
+                    <CinemaCard/>
+                    <CinemaCard/>
+                    <CinemaCard/>
+                    <Footer/>
+                </Container> 
+            </NavigationBar>
         </React.Fragment>
     )
 }

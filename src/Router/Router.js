@@ -12,70 +12,68 @@ import OrderHistory from '../Pages/OrderHistory/OrderHistory';
 import Payment from '../Pages/Payment/Payment';
 import Profile from '../Pages/Profile/Profile';
 import Ticket from '../Pages/Ticket/Ticket';
+import PrivateRoute from './PrivateRoute';
 
 
-class Router extends Component{
+class Router extends Component {
 
-    render() {
-        return (
-            <Switch>
-                    <Route exact path='/'>
-                        <NavigationBar> 
-                            <Home/>
-                        </NavigationBar> 
-                    </Route>
-                    <Route exact path='/signin'>  
-                        <Signin/> 
-                    </Route>
-                    <Route exact path='/signup'>  
-                        <Signup/> 
-                    </Route>
-                    <Route exact path='/forgotpass'>  
-                        <ForgotPass/>
-                    </Route>
-                    <Route exact path='/moviedetail/:id'>  
+   render() {
+      return (
+         <Switch>
+            <Route exact path='/'>
+               <NavigationBar>
+                  <Home />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/signin'>
+               <Signin />
+            </Route>
+            <Route exact path='/signup'>
+               <Signup />
+            </Route>
+            <Route exact path='/forgotpass'>
+               <ForgotPass />
+            </Route>
+            <PrivateRoute path='/moviedetail/:id' privateComponent={MovieDetail} />
+            {/* <Route exact path='/moviedetail/:id'>  
                         <NavigationBar> 
                             <MovieDetail/>
                         </NavigationBar>
-                    </Route>
-                    <Route exact path='/order/:id/:time/:idcard'>  
-                        <NavigationBar> 
-                            <Order />
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='/payment'>  
-                        <NavigationBar> 
-                            <Payment />
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='/ticket'>  
-                        <NavigationBar> 
-                            <Ticket />
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='/profile'>  
-                        <NavigationBar> 
-                            <Profile/>
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='/order-history'>  
-                        <NavigationBar> 
-                            <OrderHistory/>
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='/admin'>  
-                        <NavigationBar> 
-                            <Admin/>
-                        </NavigationBar>
-                    </Route>
-                    <Route exact path='*'>
-                        <NavigationBar> 
-                            <Home/>
-                        </NavigationBar> 
-                    </Route>
-            </Switch>
-        )
-    }
+                    </Route> */}
+            <Route exact path='/order/:id/:time/:idcard'>
+               <NavigationBar>
+                  <Order />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/payment'>
+               <NavigationBar>
+                  <Payment />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/ticket'>
+               <NavigationBar>
+                  <Ticket />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/profile'>
+               <NavigationBar>
+                  <Profile />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/order-history'>
+               <NavigationBar>
+                  <OrderHistory />
+               </NavigationBar>
+            </Route>
+            <PrivateRoute path='/admin' privateComponent={Admin} />
+            <Route exact path='*'>
+               <NavigationBar>
+                  <Home />
+               </NavigationBar>
+            </Route>
+         </Switch>
+      )
+   }
 }
 
 export default Router;

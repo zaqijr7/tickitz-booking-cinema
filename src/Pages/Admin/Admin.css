@@ -3,6 +3,10 @@
     height: 344px !important;
     padding: 20px;
 } */
+.body{
+    color: #4E4B66;
+    font-family: Mulish;
+}
 
 .movie-thumbnail {
     width: 177px !important;
