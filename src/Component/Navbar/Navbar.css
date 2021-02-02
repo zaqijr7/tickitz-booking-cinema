@@ -7,3 +7,8 @@
 .bg-theme{
     background-color: #5F2EEA;
 }
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}

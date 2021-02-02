@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import dataMovie from '../../DataDummy/DataMovieNowShow';
+import http from '../../Helper/http'
+import moment from 'moment'
 
 function MovieInfo() {
     const { id } = useParams();
     const [movie, setMovie] = useState({})
-
-    const getMovie = () => {
-        setMovie(
-            dataMovie.filter((item) => {
-                return item.id === Number(id)
-            })[0]
-        )
+    const releaseDate = movie.relaseDate
+    const releaseDateFix = moment(releaseDate).format('LL')
+    const getDetailMovie = async () => {
+        const getMovie = await http().get(`/movies/${id}`)
+        setMovie(getMovie.data.results)
+        // const releaseYear = releaseDate.getFullYear()
+        // const releaseMonth = releaseDate.getMonth()
+        // const releaseDay = releaseDate.getDay()
     }
     useEffect(() => {
-        getMovie()
+        getDetailMovie()
     }, [])
     
     return (
-      
         <React.Fragment>
             <Row className="my-4">
                 <Col lg={4} className="d-flex justify-content-center">
@@ -41,12 +42,12 @@ function MovieInfo() {
                             <Col lg={4} xs={6}>
                                 <small className="text-muted">Relase Date</small>
                                 <p>
-                                    {movie.relase}
+                                    {releaseDateFix}
                                  </p>
                             </Col>
                             <Col lg="auto" xs={6}>
                                 <small className="text-muted">Directed by</small>
-                                <p>{movie.directby}</p>
+                                <p>{movie.director}</p>
                             </Col>
                         </Row>
                     </Col>
@@ -54,11 +55,11 @@ function MovieInfo() {
                         <Row className="row">
                             <Col lg={4} xs={6} className="col-lg-4  col-6">
                                 <small className="text-muted">Duration</small>
-                                <p>{movie.duration}</p>
+                                <p>{movie.runtime} min</p>
                             </Col>
                             <Col lg="auto" xs={6}>
                                 <small className="text-muted">Casts</small>
-                                <p>{movie.casts}</p>
+                                <p>{movie.actors}</p>
                             </Col>
                         </Row>                      
                     </Col>
@@ -68,7 +69,7 @@ function MovieInfo() {
                     <Col xs="auto" className="pe-lg-5">
                         <p className="fw-bold fs-5">Synopsis</p>
                         <p>
-                            {movie.synopsyis} 
+                            {movie.synopsis} 
                         </p>
                     </Col>
                 </Col>
