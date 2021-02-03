@@ -17,3 +17,13 @@ export const inputCity = (data) => {
 
     }
 }
+
+export const errorMsg = (data) => {
+    return async dispatch => {
+        dispatch({
+            type: 'SET_MSG_SCHEDULE',
+            payload: data
+        })
+
+    }
+}

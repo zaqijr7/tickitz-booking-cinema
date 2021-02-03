@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Row, Col, Card } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 import http from '../../Helper/http'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
+import { selectedMovie } from '../../Redux/Action/movieSelected'
 
 function MovieInfo() {
-    const { id } = useParams();
+    const { id } = useParams()
     const [movie, setMovie] = useState({})
+    const dispatch = useDispatch()
     const releaseDate = movie.relaseDate
     const releaseDateFix = moment(releaseDate).format('LL')
     const getDetailMovie = async () => {
         const getMovie = await http().get(`/movies/${id}`)
         setMovie(getMovie.data.results)
-        // const releaseYear = releaseDate.getFullYear()
-        // const releaseMonth = releaseDate.getMonth()
-        // const releaseDay = releaseDate.getDay()
+        dispatch(selectedMovie(getMovie.data.results))
     }
     useEffect(() => {
         getDetailMovie()
@@ -78,4 +79,4 @@ function MovieInfo() {
     )
 }
 
-export default MovieInfo;
+export default MovieInfo

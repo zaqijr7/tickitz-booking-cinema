@@ -1,7 +1,8 @@
 const stateSchedule = {
     type: "SCHEDULE",
     showDate: '',
-    city: ''
+    city: '',
+    message: ''
 }
 
 const scheduleReducer = (state = stateSchedule, action) => {
@@ -15,6 +16,11 @@ const scheduleReducer = (state = stateSchedule, action) => {
             return {
                 ...state,
                 city: action.payload
+            }
+        case 'SET_MSG_SCHEDULE': 
+            return {
+                ...state,
+                message: action.payload
             }
         default:
             return {

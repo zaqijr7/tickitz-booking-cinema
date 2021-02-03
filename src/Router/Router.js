@@ -34,17 +34,13 @@ class Router extends Component {
             <Route exact path='/forgotpass'>
                <ForgotPass />
             </Route>
-            <PrivateRoute path='/moviedetail/:id' privateComponent={MovieDetail} />
+            <PrivateRoute exact path='/moviedetail/:id' privateComponent={MovieDetail} />
             {/* <Route exact path='/moviedetail/:id'>  
                         <NavigationBar> 
                             <MovieDetail/>
                         </NavigationBar>
                     </Route> */}
-            <Route exact path='/order/:id/:time/:idcard'>
-               <NavigationBar>
-                  <Order />
-               </NavigationBar>
-            </Route>
+            <PrivateRoute exact path='/moviedetail/:id/order/' privateComponent={Order} />
             <Route exact path='/payment'>
                <NavigationBar>
                   <Payment />
