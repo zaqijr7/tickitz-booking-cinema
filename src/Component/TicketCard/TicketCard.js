@@ -1,10 +1,35 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState }  from 'react';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import Logo from '../../Assets/Images/logo.png';
 import Barcode from '../../Assets/Images/bar-code.png';
+import { useSelector } from 'react-redux';
+import moment from 'moment'
+import http from '../../Helper/http' 
 
-export default class TicketCard extends Component {
-    render() {
+
+function TicketCard() {
+        const [statusres, setStatusres] = useState('')
+        const [showTime, setShowTime] = useState('')
+        const idshowtime = useSelector(state => state.transaction.id_showtime)
+        const dateShow = useSelector(state => state.schedule.showDate)
+        const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
+        const idcinema = useSelector(state => state.transaction.id_cinema)
+        const dataTicket = useSelector(state => state.transaction.id_seat)
+        const listSeat = dataTicket.join()
+        const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
+        const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
+        const tokenUser = useSelector(state => state.auth.token)
+        const getData = async (idShowtime) => {
+            try {
+                const dataShowTime = await http().get(`/showtime/${idShowtime}`)
+                setShowTime(dataShowTime.data.results.name);
+            } catch (err){
+                setStatusres(404)
+            }
+        }
+        useEffect(() => {
+            getData(idshowtime)
+        }, [])
         return (
             <>
             <Container>
@@ -36,17 +61,17 @@ export default class TicketCard extends Component {
                                         <Row>
                                             <Col>
                                                 <smalll className="text-muted">Movie</smalll>
-                                                <p className="fw-bold">Spider-Man: Homecoming</p>
+                                                <p className="fw-bold">{titleMovie}</p>
                                             </Col>
                                         </Row>
                                         <Row className="row">
                                             <Col>
                                                 <smalll className="text-muted">Date</smalll>
-                                                <p className="fw-bold">07 July</p>
+                                                <p className="fw-bold">{moment(dateShow).format('MMM Do YY')}</p>
                                             </Col>
                                             <Col>
                                                 <smalll className="text-muted">Time</smalll>
-                                                <p className="fw-bold">02:00pm</p>
+                                                <p className="fw-bold">{showTime}</p>
                                             </Col>
                                             <Col>
                                                 <smalll className="text-muted">Category</smalll>
@@ -56,15 +81,15 @@ export default class TicketCard extends Component {
                                         <Row>
                                             <Col>
                                                 <smalll className="text-muted">Count</smalll>
-                                                <p className="fw-bold">3 pieces</p>
+                                                <p className="fw-bold">{`${dataTicket.length} pieces`}</p>
                                             </Col>
                                             <Col>
                                                 <smalll className="text-muted">Seats</smalll>
-                                                <p className="fw-bold">C4, C5, C6</p>
+                                                <p className="fw-bold">{dataTicket.join(', ')}</p>
                                             </Col>
                                             <Col>
                                                 <smalll className="text-muted">Price</smalll>
-                                                <p className="fw-bold fs-5">$30,00</p>
+                                                <p className="fw-bold fs-5">{`$${priceMovie * dataTicket.length}`}</p>
                                             </Col>
                                         </Row>
                                         <div className="border-rad_inward-bottom bg-light" />
@@ -74,26 +99,26 @@ export default class TicketCard extends Component {
                                             <Col>
                                                 <Row>
                                                     <smalll className="text-muted">Movie</smalll>
-                                                    <p className="fw-bold">Spider-Man: Home...</p>
+                                                    <p className="fw-bold">{`${titleMovie}`}</p>
                                                 </Row>
                                                 <Row>
                                                     <Col>
                                                         <smalll className="text-muted">Date</smalll>
-                                                        <p className="fw-bold">07 July</p>
+                                                        <p className="fw-bold">{moment(dateShow).format('MMM Do YY')}</p>
                                                     </Col>
                                                     <Col>
                                                         <smalll className="text-muted">Time</smalll>
-                                                        <p className="fw-bold">02:00pm</p>
+                                                        <p className="fw-bold">{`${showTime}`}</p>
                                                     </Col>
                                                 </Row>
                                                 <Row>
                                                     <Col>
                                                         <smalll className="text-muted">Count</smalll>
-                                                        <p className="fw-bold">3 pieces</p>
+                                                        <p className="fw-bold">{`${dataTicket.length} pieces`}</p>
                                                     </Col>
                                                     <Col>
                                                         <smalll className="text-muted">Seats</smalll>
-                                                        <p className="fw-bold">C4, C5, C6</p>
+                                                        <p className="fw-bold">{dataTicket.join(', ')}</p>
                                                     </Col>
                                                 </Row>
                                             </Col>
@@ -121,5 +146,6 @@ export default class TicketCard extends Component {
             </Container>
             </>
         )
-    }
 }
+
+export default TicketCard

@@ -31,10 +31,9 @@ function MovieDetail() {
             dispatch(errorMsg(schedule.message))
         }
     }
-    console.log(status);
+
     useEffect(() => {
         fetchDataSchedule(date, city)
-        
     }, [date, city])
     return (
         <React.Fragment>
@@ -49,12 +48,13 @@ function MovieDetail() {
                                 return (
                                     <CinemaCard 
                                     key={item.id_cinema}
-                                    id={item.id_cinema}
+                                    idCinema={item.id_cinema}
                                     cinema={item.name}
                                     address={item.address}
                                     logo={item.logo}
                                     listShowTime={item.listShowTime}
-                                    price={moviePrice}/>
+                                    price={moviePrice}
+                                    />
                                 )
                             })
                             :

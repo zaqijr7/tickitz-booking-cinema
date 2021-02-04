@@ -1,8 +1,63 @@
-import React from 'react';
-import { Card, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Card, Col, Form, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import http from '../../Helper/http'
+import moment from 'moment'
+import jwt from 'jsonwebtoken'
+
 
 function BodyPayment({children}) {
+    const [cinema, setCinema] = useState('')
+    const [showTime, setShowTime] = useState('')
+    const [statusres, setStatusres] = useState('')
+    const idshowtime = useSelector(state => state.transaction.id_showtime)
+    const dateShow = useSelector(state => state.schedule.showDate)
+    const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
+    const idcinema = useSelector(state => state.transaction.id_cinema)
+    const dataTicket = useSelector(state => state.transaction.id_seat)
+    const listSeat = dataTicket.join()
+    const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
+    const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
+    const tokenUser = useSelector(state => state.auth.token)
+    const dataUser = jwt.decode(tokenUser)
+    const idUser = dataUser.id
+    console.log(idUser);
+
+    const getData = async (idShowtime, idCinema) => {
+        try {
+            const dataShowTime = await http().get(`/showtime/${idShowtime}`)
+            setShowTime(dataShowTime.data.results.name);
+        } catch (err){
+            setStatusres(404)
+        }
+
+        try{
+            const dataCinema = await http().get(`/cinemas/${idCinema}`)
+            setCinema(dataCinema.data.results.name);
+        } catch(err) {
+            setStatusres(404)
+        }
+
+    }
+    const handleClick = async (idUser, idMovie, idCinema, idShowTIme, seat) => {
+        const params = new URLSearchParams()
+        params.append('id_user', idUser)
+        params.append('id_movie', idMovie)
+        params.append('id_cinema', idCinema)
+        params.append('id_showtime', idShowTIme)
+        params.append('seat', seat)
+        try {
+           const results = await http().post(`transaction`, params)
+           console.log(results);
+        } catch (err) {
+            setStatusres(500)
+        }
+    } 
+    useEffect(() => {
+        getData(idshowtime, idcinema)
+        handleClick(idUser, idMovie, idcinema, idshowtime, listSeat)
+    }, [])
     return (
         <Row className="p-3 px-lg-0">
             <Col lg={8}>
@@ -18,7 +73,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Date &amp; time</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end">Tuesday, 07 July 2020 at 02:00pm</p>
+                                <p className="text-end">{`${moment(dateShow).format('LL')} at ${showTime}`}</p>
                             </Col>
                             <Col xs={12} style={{marginTop: '-20px'}}>
                                 <hr />
@@ -29,7 +84,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Movie title</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end">Spider-Man: Homecoming</p>
+                                <p className="text-end">{`${titleMovie}`}</p>
                             </Col>
                             <Col xs={12} style={{marginTop: '-20px'}}>
                                 <hr />
@@ -40,7 +95,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Cinema name</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end">CineOne21 Cinema</p>
+                                <p className="text-end">{`${cinema}`}</p>
                             </Col>
                             <Col xs={12}  style={{marginTop: '-20px'}}>
                                 <hr />
@@ -51,7 +106,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Number of tickets</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end">3 pieces</p>
+                                <p className="text-end">{`${dataTicket.length} pieces`}</p>
                             </Col>
                             <Col xs={12} style={{marginTop: '-20px'}}>
                                 <hr />
@@ -62,7 +117,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Total payment</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end fw-bold fs-5">$30,00</p>
+                                <p className="text-end fw-bold fs-5">{`$${priceMovie * dataTicket.length}`}</p>
                             </Col>
                         </Row>
                     </Col>

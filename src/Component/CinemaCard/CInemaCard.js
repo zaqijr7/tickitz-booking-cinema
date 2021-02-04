@@ -1,28 +1,30 @@
 import React, { useState } from 'react'
 import { Card, Row, Col, Container, Form } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+import { selectedTime } from '../../Redux/Action/transaction'
+import { selectedCinema } from '../../Redux/Action/transaction'
 
 
 function CinemaCard(props) {
     const { id } = useParams()
-    console.log(props.listShowTime)
     const [time, setTime] = useState('')
-    const [card, setCard] = useState('')
+    const dispatch = useDispatch()
 
     const handleClickTime = (event) => {
-        event.preventDefault();
-        setTime(event.target.id);
+        event.preventDefault()
+        setTime(event.target.id)
+        dispatch(selectedTime(event.target.id))
     }
-    const handleSubmitCard = (event) => {
-        event.preventDefault();
-        setCard(event.target.id)
+    const selectCinema = () => {
+        console.log(props.idCinema);
+        dispatch(selectedCinema(props.idCinema))
     }
-    console.log(time);
 
     return (
         <React.Fragment>
             <Col lg={4}>
-                <Form id={props.id_cinema}>
+                <Form id={props.idCinema} onClick={selectCinema}>
                     <Card className="border rounded my-4 my-lg-0 card-shadow">
                         <Card.Body className="py-4 px-1">
                             <Container>
@@ -42,25 +44,12 @@ function CinemaCard(props) {
                                         props.listShowTime.map(time => {
                                             return (
                                                 <Col xs={4} className='py-3' style={{ fontSize: 12 }}>
-                                                    <button id={time[0].id} className="text-muted text-center bg-transparent border-0" onClick={(e) => handleClickTime(e)}>{time[0].name}</button>
+                                                    <button id={time[0].id} className={`text-muted text-center bg-transparent border-0 btn-time`} onClick={(e) => handleClickTime(e)}>{time[0].name}</button>
                                                 </Col>
                                             )
                                         })
                                     }
                                 </Row>
-                                {/* <Row className="my-3">
-                                    <Col xs={3} style={{ fontSize: 12 }}>
-                                        <button id={4} className="text-muted text-center bg-transparent border-0" onClick={(e) => handleClickTime(e)}>{value.time[4]}</button>
-                                    </Col>
-                                    <Col xs={3} style={{ fontSize: 12 }}>
-                                        <button id={5} className="text-center bg-transparent border-0" onClick={(e) => handleClickTime(e)} style={{ color: '#A0A3BD' }} disabled>{value.time[5]}</button>
-                                    </Col>
-                                    <Col xs={3} style={{ fontSize: 12 }}>
-                                        <button id={6} className="text-muted text-center bg-transparent border-0" onClick={(e) => handleClickTime(e)}>{value.time[6]}</button>
-                                    </Col>
-                                    <Col xs={3} style={{ fontSize: 12 }}>
-                                    </Col>
-                                </Row> */}
                                 <Row className="mt-4">
                                     <Col xs={6}>
                                         <p className="text-muted">Price</p>

@@ -17,12 +17,9 @@ function FormSignin() {
    const handleClick = () => {
       if (showpass === false) {
          setShowpass(true);
+         setType('text')
       } else if (showpass === true) {
          setShowpass(false);
-      }
-      if (showpass === true) {
-         setType('text');
-      } else {
          setType('password');
       }
    }
