@@ -1,30 +1,52 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, Row, Col, Container, Form } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { selectedTime } from '../../Redux/Action/transaction'
-import { selectedCinema } from '../../Redux/Action/transaction'
+import { selectedTime, selectedCinema, selectedCinemaName, selectedShowTimeName } from '../../Redux/Action/transaction'
+import http from '../../Helper/http'
 
 
 function CinemaCard(props) {
     const { id } = useParams()
     const [time, setTime] = useState('')
     const dispatch = useDispatch()
+    const cinemaId = useSelector(state => state.transaction.id_cinema)
 
     const handleClickTime = (event) => {
         event.preventDefault()
         setTime(event.target.id)
         dispatch(selectedTime(event.target.id))
-    }
-    const selectCinema = () => {
-        console.log(props.idCinema);
         dispatch(selectedCinema(props.idCinema))
     }
+
+    // const selectCinema = () => {
+        
+    // }
+
+    const getNameCinema = async (idCinema) => {
+        const dataCinema = await http().get(`/cinemas/${idCinema}`)
+        dispatch(selectedCinemaName(dataCinema.data.results.name))
+    }
+
+
+    // const getNameShowtime = async (dataShowTime) => {
+    //     try {
+    //         const dataTime = await http().get(`showtime/${dataShowTime}`)
+    //         setShowTime(dataTime.data.results.name)
+    //     } catch (err) {
+    //         setStatusRes(500)
+    //     }
+    // }
+
+    useEffect(() => {
+        getNameCinema(cinemaId)
+        // showtimeName(time)
+    }, [cinemaId])
 
     return (
         <React.Fragment>
             <Col lg={4}>
-                <Form id={props.idCinema} onClick={selectCinema}>
+                <Form id={props.idCinema}>
                     <Card className="border rounded my-4 my-lg-0 card-shadow">
                         <Card.Body className="py-4 px-1">
                             <Container>

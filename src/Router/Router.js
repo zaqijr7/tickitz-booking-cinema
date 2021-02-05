@@ -36,22 +36,10 @@ class Router extends Component {
             </Route>
             <PrivateRoute exact path='/moviedetail/:id' privateComponent={MovieDetail} />
             <PrivateRoute exact path='/moviedetail/:id/order/' privateComponent={Order} />
-            <PrivateRoute exact path='/payment' privateComponent={Payment}/>
-            <Route exact path='/ticket'>
-               <NavigationBar>
-                  <Ticket />
-               </NavigationBar>
-            </Route>
-            <Route exact path='/profile'>
-               <NavigationBar>
-                  <Profile />
-               </NavigationBar>
-            </Route>
-            <Route exact path='/order-history'>
-               <NavigationBar>
-                  <OrderHistory />
-               </NavigationBar>
-            </Route>
+            <PrivateRoute exact path='/payment' privateComponent={Payment} />
+            <PrivateRoute exact path='/ticket' privateComponent={Ticket} />
+            <PrivateRoute exact path='/profile' privateComponent={Profile} />
+            <PrivateRoute exact path='/profile/order-history' privateComponent={OrderHistory} />
             <PrivateRoute path='/admin' privateComponent={Admin} />
             <Route exact path='*'>
                <NavigationBar>

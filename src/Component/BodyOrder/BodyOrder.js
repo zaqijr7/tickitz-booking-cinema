@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Row, Col, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import http from '../../Helper/http'
 import moment from 'moment'
 import { selectedSeat } from '../../Redux/Action/transaction'
 
 function BodyOrder(props) {
-    const { id } = useParams
-    const [showTime, setShowTime] = useState('')
+    const [statusRes, setStatusRes] = useState('')
+    const [cinema, setCinema] = useState('')
+    const [seatSold, setSeatSold] = useState('')
     const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
-    console.log(titleMovie);
     const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
-    const showTimeId = useSelector(state => state.transaction.id_showtime)
     const showDate = useSelector(state => state.schedule.showDate)
+    const cinemaName = useSelector(state => state.transaction.cinemaName)
+    const idCinema = useSelector(state => state.transaction.id_cinema)
+    const showtimeName = useSelector(state => state.transaction.showtimeName)
     const dispatch = useDispatch()
     const [seat, setSeat] = useState([])
 
-    const getDetailShowTime = async (dataShowTime) => {
-        const data = await http().get(`showtime/${dataShowTime}`)
-        setShowTime(data.data.results.name);
+
+    const getDataSeatsIsSold = async (selectedMovie, cinemaName, selectedShowTime, showDate) => {
+        try {
+            const seatIsSold = await http().get(`/seat/sold?movie=${selectedMovie}&cinema=${cinemaName}&showTime=${selectedShowTime}&showDate=${showDate}`)
+            if (seatIsSold.data.results.listSold !== null) {
+                setSeatSold(seatIsSold.data.results.listSold)
+            } else {
+                setSeatSold('a, b')
+            }
+        } catch (err) {
+            setStatusRes(500)
+        }
     }
+
     const handleClickChooseSeat = (event) => {
         console.log(event.target.checked);
         if (event.target.id && event.target.checked === false) {
@@ -30,9 +42,25 @@ function BodyOrder(props) {
             setSeat([...seat, event.target.id])
         }
     }
-    console.log(seat);
+
+    const detailCinema = async (idCinema) => {
+        try {
+            const detailCinema = await http().get(`cinemas/${idCinema}`)
+            setCinema(detailCinema.data.results.logo)
+        } catch (err) {
+            setStatusRes(500)
+        }
+    }
+
     useEffect(() => {
-        getDetailShowTime(showTimeId)
+        detailCinema(idCinema)
+
+    }, [])
+    // console.log(seatSold, '<<<<<< ini seat sold');
+
+
+    useEffect(() => {
+        getDataSeatsIsSold(titleMovie, cinemaName, showtimeName, showDate)
         dispatch(selectedSeat(seat))
     }, [seat]);
     return (
@@ -79,7 +107,12 @@ function BodyOrder(props) {
                                                     {[1, 2, 3, 4, 5, 6, 7].map(column => {
                                                         return (
                                                             <>
-                                                                <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={`seat-layout btn-seat-layout btn-seat`} />
+                                                               {
+                                                                   seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
+                                                                   <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={`seat-layout btn-seat-layout btn-seat`} disabled/>
+                                                                   :
+                                                                   <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={`seat-layout btn-seat-layout btn-seat`}/>
+                                                               }
                                                             </>
                                                         )
                                                     })}
@@ -111,9 +144,23 @@ function BodyOrder(props) {
                                                             <>
                                                                 {
                                                                     row === 'F' && column === 10 ?
-                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} />
+                                                                    <>
+                                                                        {
+                                                                        seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
+                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} disabled />
                                                                         :
-                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" />
+                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} />
+                                                                        }
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                        {
+                                                                        seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
+                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" disabled/>
+                                                                        :
+                                                                        <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light"/>
+                                                                        }
+                                                                    </>
                                                                 }
                                                             </>
                                                         )
@@ -178,10 +225,10 @@ function BodyOrder(props) {
                             <Container>
                                 <Row className="border-3 d-flex flex-column">
                                     <Col className="d-flex justify-content-center align-items-center mt-2">
-                                        {/* <img src={item.cinema} alt={item.name} /> */}
+                                        <img src={cinema} alt={cinema} className="logo-cinema-order" />
                                     </Col>
                                     <Col className="text-center my-4">
-                                        {/* <p className="fs-4">{item.name}</p> */}
+                                        <p className="fs-4">{cinemaName}</p>
                                     </Col>
                                 </Row>
                                 <Row className="my-1">
@@ -199,7 +246,7 @@ function BodyOrder(props) {
                                         <small className="text-muted">{moment(showDate).format('LL')}</small>
                                     </Col>
                                     <Col xs={7} className="text-end">
-                                        {showTime}
+                                        {showtimeName}
                                     </Col>
                                 </Row>
                                 <Row className="my-1">

@@ -3,7 +3,9 @@ const stateTransaction = {
     id_movie: '',
     id_cinema: '',
     id_showtime: '',
-    id_seat: []
+    id_seat: [],
+    cinemaName: '',
+    showtimeName: ''
 }
 
 const transactionReducer = (state = stateTransaction, action) => {
@@ -27,6 +29,16 @@ const transactionReducer = (state = stateTransaction, action) => {
             return {
                 ...state,
                 id_seat: action.payload
+            }
+        case 'CINEMA_NAME':
+            return {
+                ...state,
+                cinemaName: action.payload
+            }
+        case 'SHOWTIME_NAME':
+            return {
+                ...state,
+                showtimeName: action.payload
             }
         default:
             return {

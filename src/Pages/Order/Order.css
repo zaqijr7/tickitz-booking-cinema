@@ -26,10 +26,10 @@
     border-radius: 4px;
 }
 
-.btn-seat:hover{
+/* .btn-seat:hover{
     opacity: 0.5;
     cursor: pointer;
-}
+} */
 
 .btn-seat:active {
     opacity: 1;
@@ -79,10 +79,28 @@
     background-color:#D6D8E7 !important;
 }
 
+.logo-cinema-order{
+    width: 250px;
+    height: auto;
+}
+
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
 input[type="checkbox"]:checked{
     -webkit-appearance: none;
     appearance: none;
     background-color: #5F2EEA !important;
+}
+
+input[type="checkbox"]:disabled{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #6E7191 !important;
+    cursor: unset;
 }
 
 .btn-seat-layout_love-nest{
