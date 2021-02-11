@@ -45,7 +45,7 @@ function CinemaCard(props) {
 
     return (
         <React.Fragment>
-            <Col lg={4}>
+            <Col lg={4} className="my-3">
                 <Form id={props.idCinema}>
                     <Card className="border rounded my-4 my-lg-0 card-shadow">
                         <Card.Body className="py-4 px-1">

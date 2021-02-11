@@ -2,6 +2,7 @@ const initialState = {
    type: 'LOGIN',
    token: null,
    message: '',
+   profile: []
 }
 
 const authReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ const authReducer = (state = initialState, action) => {
          return {
             ...state,
             message: action.payload
+         }
+      case 'SET_PROFILE':
+         return {
+            ...state,
+            profile: action.payload
          }
       default:
          return {

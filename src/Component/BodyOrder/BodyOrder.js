@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import http from '../../Helper/http'
 import moment from 'moment'
-import { selectedSeat } from '../../Redux/Action/transaction'
+import { selectedSeat, totalPayment } from '../../Redux/Action/transaction'
 
 function BodyOrder(props) {
     const [statusRes, setStatusRes] = useState('')
     const [cinema, setCinema] = useState('')
     const [seatSold, setSeatSold] = useState('')
+    const [price, setPrice] = useState(0)
     const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
     const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
     const showDate = useSelector(state => state.schedule.showDate)
@@ -38,8 +39,24 @@ function BodyOrder(props) {
         if (event.target.id && event.target.checked === false) {
             const newData = seat.filter(seat => seat !== event.target.id)
             setSeat(newData)
+            if (event.target.id.indexOf('F10') > -1) {
+                const loveNest = priceMovie * 2
+                setPrice(price - loveNest)
+                dispatch(totalPayment(price - loveNest))
+            } else {
+                setPrice(price - priceMovie)
+                dispatch(totalPayment(price - priceMovie))
+            }
         } else {
             setSeat([...seat, event.target.id])
+            if (event.target.id.indexOf('F10') > -1) {
+                const loveNest = priceMovie * 2
+                setPrice(price + loveNest)
+                dispatch(totalPayment(price + loveNest))
+            } else {
+                setPrice(price + priceMovie)
+                dispatch(totalPayment(price + priceMovie))
+            }
         }
     }
 
@@ -273,7 +290,7 @@ function BodyOrder(props) {
                                         <p className="fs-5">Total Payment</p>
                                     </Col>
                                     <Col xs={7} className="text-end">
-                                        <p className="fs-5 fw-bold font-color-costum">{`$${priceMovie * seat.length} `}</p>
+                                        <p className="fs-5 fw-bold font-color-costum">{`$${price} `}</p>
                                     </Col>
                                 </Row>
                             </Container>

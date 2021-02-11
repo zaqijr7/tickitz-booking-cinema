@@ -17,10 +17,11 @@ function Ticket() {
     const listSeat = dataTicket.join()
     const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
     const tokenUser = useSelector(state => state.auth.token)
+    const totalPayment = useSelector(state => state.transaction.totalPayment)
     const dataUser = jwt.decode(tokenUser)
     const idUser = dataUser.id
 
-    const handleClick = async (tokenUser, idUser, idMovie, idCinema, idShowTIme, date, seat) => {
+    const handleClick = async (tokenUser, idUser, idMovie, idCinema, idShowTIme, date, seat, totalPayment) => {
         const params = new URLSearchParams()
         params.append('id_user', idUser)
         params.append('id_movie', idMovie)
@@ -28,6 +29,7 @@ function Ticket() {
         params.append('id_showtime', idShowTIme)
         params.append('showDate', date)
         params.append('seat', seat)
+        params.append('totalPayment', totalPayment)
         try {
            const results = await http(tokenUser).post(`transaction`, params)
            console.log(results);
@@ -37,7 +39,7 @@ function Ticket() {
     } 
 
     useEffect(() => {
-        handleClick(tokenUser, idUser, idMovie, idcinema, idshowtime, dateShow, listSeat)
+        handleClick(tokenUser, idUser, idMovie, idcinema, idshowtime, dateShow, listSeat, totalPayment)
     }, [])
     return (
         <>

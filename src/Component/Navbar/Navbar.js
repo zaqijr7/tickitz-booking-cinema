@@ -17,6 +17,7 @@ import './Navbar.css';
 function NavigationBar({children}){
     const [show, setShow] = useState(false)
     const token = useSelector(state => state.auth.token)
+    const photoProfile = useSelector(state => state.auth.profile.photo)
     const handleShow = () => {
         setShow(true)
     }
@@ -75,7 +76,7 @@ function NavigationBar({children}){
                                 <Nav.Link className="py-2 py-lg-0 me-lg-5 ms-2">
                                     { token !== null ? 
                                         <Link to="/profile">
-                                            <img src={avatar} className="rounded-circle avatar" alt="avatar"/>
+                                            <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="rounded-circle avatar" alt="avatar"/>
                                         </Link>
                                         :
                                         <Link to="/signup">

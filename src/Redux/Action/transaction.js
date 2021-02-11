@@ -2,11 +2,19 @@ import http from "../../Helper/http"
 
 export const addMovieToCart = (data) => {
     return async dispatch => {
+        const dataSchedule = await http().get(`schedule?idMovie=${data}`)
+        dispatch({
+            type: 'DATA_DATE_SCHEDULE',
+            payload: dataSchedule.data.results.dateShow
+        })
+        dispatch({
+            type: 'DATA_CITY_SCHEDULE',
+            payload: dataSchedule.data.results.city
+        })
         dispatch({
             type: 'CHOOSE_MOVIE',
             payload: data
         })
-
     }
 }
 
@@ -64,7 +72,17 @@ export const selectedCinemaName = (data) => {
 export const selectedShowTimeName = (data) => {
     return async dispatch => {
         dispatch({
-            type: 'SHOWTIME_NAME    ',
+            type: 'SHOWTIME_NAME',
+            payload: data
+        })
+
+    }
+}
+
+export const totalPayment = (data) => {
+    return async dispatch => {
+        dispatch({
+            type: 'TOTAL_PAYMENT',
             payload: data
         })
 

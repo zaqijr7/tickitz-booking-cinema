@@ -12,3 +12,74 @@
     width: 177px !important;
     height: auto !important;
 }
+
+.checkbox-genre {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 4px !important;
+    border: 2px #5F2EEA solid;
+    margin: 10px;
+}
+
+.dropdown-menu {
+    width: 100% !important;
+    height: 218px;
+    overflow: auto;
+}
+
+.logo-cinema_admin {
+    width: auto;
+    height: 25px;
+}
+
+.selected-movie {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+
+.selected-movie:checked + .logo-cinema_admin {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px #5F2EEA solid !important;
+    height: 30px !important;
+}
+
+.selected-movie + .logo-cinema_admin {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.checkbox-time {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.checkbox-time:checked + .checkbox-time_label {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px #5F2EEA solid !important;
+    height: 30px !important;
+}
+
+.checkbox-time + .checkbox-time_label {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+ 
+/* 
+.card-movie-thumb {
+    width : 179px;
+    height: 265.5px;
+} */

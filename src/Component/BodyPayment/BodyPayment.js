@@ -12,6 +12,7 @@ function BodyPayment({children}) {
     const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
     const showtimeName = useSelector(state => state.transaction.showtimeName)
     const cinemaName = useSelector(state => state.transaction.cinemaName)
+    const totalPayment = useSelector(state => state.transaction.totalPayment)
 
     return (
         <Row className="p-3 px-lg-0">
@@ -72,7 +73,7 @@ function BodyPayment({children}) {
                                 <small className="text-start text-muted">Total payment</small>
                             </Col>
                             <Col xs={6}>
-                                <p className="text-end fw-bold fs-5">{`$${priceMovie * dataTicket.length}`}</p>
+                                <p className="text-end fw-bold fs-5">{`$${totalPayment}`}</p>
                             </Col>
                         </Row>
                     </Col>

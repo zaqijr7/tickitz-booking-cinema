@@ -5,7 +5,8 @@ const stateTransaction = {
     id_showtime: '',
     id_seat: [],
     cinemaName: '',
-    showtimeName: ''
+    showtimeName: '',
+    totalPayment: 0
 }
 
 const transactionReducer = (state = stateTransaction, action) => {
@@ -39,6 +40,11 @@ const transactionReducer = (state = stateTransaction, action) => {
             return {
                 ...state,
                 showtimeName: action.payload
+            }
+        case 'TOTAL_PAYMENT':
+            return {
+                ...state,
+                totalPayment: action.payload
             }
         default:
             return {

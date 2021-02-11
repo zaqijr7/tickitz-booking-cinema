@@ -16,12 +16,15 @@ function MovieDetail() {
     const date = useSelector(state => state.schedule.showDate)
     const city = useSelector(state => state.schedule.city)
     const moviePrice = useSelector(state => state.selectedMovie.detailMovie.price)
+    const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
     const dispatch = useDispatch()
-    const fetchDataSchedule = async (date, city) => {
+
+    const fetchDataSchedule = async (idMovie, date, city) => {
         try{
             const params = new URLSearchParams()
-            params.append('showDate', date)
+            params.append('movie', idMovie)
             params.append('city', city)
+            params.append('showDate', date)
             const response = await http().post(`schedule`, params)
             setSchedule(response.data.results)
             setStatus(response.status)
@@ -32,8 +35,9 @@ function MovieDetail() {
         }
     }
 
+
     useEffect(() => {
-        fetchDataSchedule(date, city)
+        fetchDataSchedule(idMovie, date, city)
     }, [date, city])
     return (
         <React.Fragment>

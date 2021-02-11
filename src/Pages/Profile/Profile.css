@@ -86,11 +86,11 @@
 }
 
 .bg-theme{
-    background-color: #5F2EEA;;
+    background-color: #5F2EEA;
 }
 
 .bg-pink{
-    background-color: #F589D7;;
+    background-color: #F589D7;
 }
 
 
@@ -110,6 +110,32 @@
 .form-profile {
     height: 55px !important;
 }
+
+.input-photo_profile {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 160px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+.file-input label{
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    position: relative;
+    width: 160px !important;
+    height: 40px !important;
+    border: 0px !important;
+    border-radius: 5px !important;
+    background-color: #5F2EEA !important;
+    cursor: pointer;
+}
+
 
 @media only screen and (max-width: 1000px) {
     .navbar-brand-costum{

@@ -13,12 +13,8 @@ function TicketCard() {
         const idshowtime = useSelector(state => state.transaction.id_showtime)
         const dateShow = useSelector(state => state.schedule.showDate)
         const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
-        const idcinema = useSelector(state => state.transaction.id_cinema)
         const dataTicket = useSelector(state => state.transaction.id_seat)
-        const listSeat = dataTicket.join()
-        const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
-        const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
-        const tokenUser = useSelector(state => state.auth.token)
+        const totalPayment = useSelector(state => state.transaction.totalPayment)
         const getData = async (idShowtime) => {
             try {
                 const dataShowTime = await http().get(`/showtime/${idShowtime}`)
@@ -89,7 +85,7 @@ function TicketCard() {
                                             </Col>
                                             <Col>
                                                 <smalll className="text-muted">Price</smalll>
-                                                <p className="fw-bold fs-5">{`$${priceMovie * dataTicket.length}`}</p>
+                                                <p className="fw-bold fs-5">{`$${totalPayment}`}</p>
                                             </Col>
                                         </Row>
                                         <div className="border-rad_inward-bottom bg-light" />
