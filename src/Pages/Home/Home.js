@@ -9,34 +9,34 @@ import Subcription from '../../Component/Subcription/Subcription';
 import UpcomingMovie from '../../Component/UpcomingMovie/UpcomingMovie';
 
 
-function Home(){
-    const [nowshow, setNowshow] = useState([])
-    const fetchDataNowshow = async () => {
-        const movieNowshow = await http().get(`nowshow`)
-        setNowshow(movieNowshow.data.results)
-    }
-    useEffect(() => {
-        fetchDataNowshow()
-    },[])
-    return (
-        <React.Fragment>
-            <Container>
-                <RowTitle/>
-                <NowShow>
-                    {
-                    nowshow.map((value) => {
-                        return (
-                            <FilmNowShow id={value.id} poster={value.poster}/>
-                        )
-                    })
-                    }
-                </NowShow>
-                <UpcomingMovie/>
-                <Subcription/>
-                <Footer />
-            </Container>
-        </React.Fragment>
-    )
+function Home() {
+  const [nowshow, setNowshow] = useState([])
+  const fetchDataNowshow = async () => {
+    const movieNowshow = await http().get(`nowshow`)
+    setNowshow(movieNowshow.data.results)
+  }
+  useEffect(() => {
+    fetchDataNowshow()
+  }, [])
+  return (
+    <React.Fragment>
+      <Container>
+        <RowTitle />
+        <NowShow>
+          {
+            nowshow.map((value) => {
+              return (
+                <FilmNowShow id={value.id} poster={value.poster} />
+              )
+            })
+          }
+        </NowShow>
+        <UpcomingMovie />
+        <Subcription />
+        <Footer />
+      </Container>
+    </React.Fragment>
+  )
 }
 
 export default Home;

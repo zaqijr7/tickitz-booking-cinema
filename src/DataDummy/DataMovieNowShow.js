@@ -6,7 +6,7 @@ import JhonWick from '../Assets/Images/thumb-film/jhon-wick.png';
 import Avenger from '../Assets/Images/thumb-film/avenger.png';
 
 const dataMovie = [
-    {
+  {
     id: 1,
     title: 'Spiderman: Home Coming',
     genre: 'Action, Mistery, Sci-Fi',
@@ -15,9 +15,9 @@ const dataMovie = [
     directby: 'Jon Watss',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    }, 
-    {
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+  {
     id: 2,
     title: 'Lion King',
     genre: 'Action, Animal',
@@ -26,9 +26,9 @@ const dataMovie = [
     directby: 'Petter Slovke',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    },
-    {
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+  {
     id: 3,
     title: 'Jhon Wick 3',
     genre: 'Action, Mistery',
@@ -37,9 +37,9 @@ const dataMovie = [
     directby: 'Rachel Piter',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    },
-    {
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+  {
     id: 4,
     title: 'Avenger End Game',
     genre: 'Action, Mistery, Sci-Fi',
@@ -48,9 +48,9 @@ const dataMovie = [
     directby: 'Michel Wathan',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    },
-    {
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+  {
     id: 5,
     title: 'Godzila',
     genre: 'Action, Mistery, Sci-Fi, Horor',
@@ -59,9 +59,9 @@ const dataMovie = [
     directby: 'Stave Job',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    },
-    {
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+  {
     id: 6,
     title: 'Jocker 3',
     genre: 'Mistery, Romance',
@@ -70,8 +70,8 @@ const dataMovie = [
     directby: 'Broth Watss',
     duration: '2 hours 13 minutes',
     casts: 'JTom Holland, Michael Keaton, Robert Downey Jr., ...',
-    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.' 
-    },
-    
+    synopsyis: 'Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.'
+  },
+
 ];
 export default dataMovie;

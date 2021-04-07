@@ -12,6 +12,10 @@ export const register = (email, password) => {
             type: 'REGISTER',
             payload: results.data.result.email
          })
+         dispatch({
+          type: 'SET_REGISTER_MESSAGE',
+          payload: results.data.message
+       })
       } catch (err) {
          const { message } = err.response.data
          dispatch({
@@ -20,6 +24,19 @@ export const register = (email, password) => {
          })
       }
    }
+}
+
+export const cleanMsg = () => {
+  return async dispatch => {
+    dispatch({
+      type: 'SET_REGISTER_MESSAGE',
+      payload: ''
+   })
+   dispatch({
+    type: 'SET_LOGIN_MESSAGE',
+    payload: ''
+ })
+  }
 }
 
 export const resetMsg = () => {

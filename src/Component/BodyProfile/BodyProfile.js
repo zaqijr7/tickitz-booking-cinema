@@ -4,14 +4,14 @@ import SideProfileInfo from '../SideProfileInfo/SideProfileInfo';
 import FormAccountSet from '../FormAccountSet/FormAccountSet';
 
 export default class BodyProfile extends Component {
-    render() {
-        return (
-            <Container>
-                <Row>
-                    <SideProfileInfo/>
-                    <FormAccountSet/>
-                </Row>
-            </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <Row>
+          <SideProfileInfo />
+          <FormAccountSet />
+        </Row>
+      </Container>
+    )
+  }
 }

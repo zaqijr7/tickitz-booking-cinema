@@ -7,21 +7,21 @@ import NavigationBar from '../../Component/Navbar/Navbar';
 import './Payment.css';
 
 function Payment() {
-    return (
-        <>
-        <NavigationBar>
-            <div className="body">
-                <Container>
-                    <BodyPayment> 
-                        <ButtonPayment/>
-                    </BodyPayment>
-                </Container>
-            </div>
-                <Container>
-                    <Footer/>
-                </Container>
-        </NavigationBar>
-        </>
-    )
+  return (
+    <>
+      <NavigationBar>
+        <div className="body">
+          <Container>
+            <BodyPayment>
+              <ButtonPayment />
+            </BodyPayment>
+          </Container>
+        </div>
+        <Container>
+          <Footer />
+        </Container>
+      </NavigationBar>
+    </>
+  )
 }
 export default Payment;

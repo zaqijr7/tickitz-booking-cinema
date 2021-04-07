@@ -11,67 +11,79 @@ import http from '../../Helper/http';
 import { errorMsg } from '../../Redux/Action/findSchedule';
 
 function MovieDetail() {
-    const [schedule, setSchedule] = useState([])
-    const [status, setStatus] = useState('')
-    const date = useSelector(state => state.schedule.showDate)
-    const city = useSelector(state => state.schedule.city)
-    const moviePrice = useSelector(state => state.selectedMovie.detailMovie.price)
-    const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
-    const dispatch = useDispatch()
+  const [schedule, setSchedule] = useState([])
+  const [status, setStatus] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const date = useSelector(state => state.schedule.showDate)
+  const city = useSelector(state => state.schedule.city)
+  const moviePrice = useSelector(state => state.selectedMovie.detailMovie.price)
+  const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
+  const dispatch = useDispatch()
 
-    const fetchDataSchedule = async (idMovie, date, city) => {
-        try{
-            const params = new URLSearchParams()
-            params.append('movie', idMovie)
-            params.append('city', city)
-            params.append('showDate', date)
-            const response = await http().post(`schedule`, params)
-            setSchedule(response.data.results)
-            setStatus(response.status)
-        }catch(err){
-            setSchedule([])
-            setStatus(404)
-            dispatch(errorMsg(schedule.message))
-        }
+  const fetchDataSchedule = async (idMovie, date, city) => {
+    setIsLoading(true)
+    try {
+      const params = new URLSearchParams()
+      params.append('movie', idMovie)
+      params.append('city', city)
+      params.append('showDate', date)
+      const response = await http().post(`schedule`, params)
+      setSchedule(response.data.results)
+      setStatus(response.status)
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      setSchedule([])
+      setStatus(404)
+      dispatch(errorMsg(schedule.message))
     }
+  }
 
 
-    useEffect(() => {
-        fetchDataSchedule(idMovie, date, city)
-    }, [date, city])
-    return (
-        <React.Fragment>
-            <NavigationBar>
-                <Container>
-                    <MovieInfo/>
-                    <ButtonTimeTicket/>
-                        <Row className="my-4 d-flex">
-                        {
-                            status === 200 ? 
-                            schedule.map(item => {
-                                return (
-                                    <CinemaCard 
-                                    key={item.id_cinema}
-                                    idCinema={item.id_cinema}
-                                    cinema={item.name}
-                                    address={item.address}
-                                    logo={item.logo}
-                                    listShowTime={item.listShowTime}
-                                    price={moviePrice}
-                                    />
-                                )
-                            })
-                            :
-
-                            <h1 className="text-center"> Opss sorry, schedule not found</h1>
-
-                        }
-                        </Row>
-                    <Footer/>
-                </Container> 
-            </NavigationBar>
-        </React.Fragment>
-    )
+  useEffect(() => {
+    fetchDataSchedule(idMovie, date, city)
+  }, [date, city])
+  return (
+    <React.Fragment>
+      <NavigationBar>
+        <Container>
+          <MovieInfo />
+          <ButtonTimeTicket />
+          <Row className="my-4 d-flex">
+            {isLoading === true ?
+              <div className="d-flex justify-content-center align-items-center mt-3">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            : 
+              <>
+                {status === 200 ?
+                  schedule.map(item => {
+                    return (
+                      <CinemaCard
+                        key={item.id_cinema}
+                        idCinema={item.id_cinema}
+                        cinema={item.name}
+                        address={item.address}
+                        logo={item.logo}
+                        listShowTime={item.listShowTime}
+                        price={moviePrice}
+                      />
+                    )
+                  })
+                  :
+                  <h1 className="text-center"> Please choose date and location first </h1>
+                }
+              </>
+            }
+            
+          </Row>
+          <Footer />
+        </Container>
+      </NavigationBar>
+    </React.Fragment>
+  )
 }
 
 export default MovieDetail;

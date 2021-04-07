@@ -8,14 +8,14 @@ import Bri from '../Assets/Images/bri-logo.png';
 import Ovo from '../Assets/Images/ovo-logo.png';
 
 const buttonListPayment = [
-    {id: 1, buttonName: GooglePay},
-    {id: 2, buttonName: Visa},
-    {id: 3, buttonName: Gopay},
-    {id: 4, buttonName: Paypal},
-    {id: 5, buttonName: Dana},
-    {id: 6, buttonName: Bca},
-    {id: 7, buttonName: Bri},
-    {id: 8, buttonName: Ovo}
+  { id: 1, buttonName: GooglePay },
+  { id: 2, buttonName: Visa },
+  { id: 3, buttonName: Gopay },
+  { id: 4, buttonName: Paypal },
+  { id: 5, buttonName: Dana },
+  { id: 6, buttonName: Bca },
+  { id: 7, buttonName: Bri },
+  { id: 8, buttonName: Ovo }
 ];
 
 export default buttonListPayment;
