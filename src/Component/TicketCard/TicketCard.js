@@ -84,7 +84,7 @@ function TicketCard () {
                       </Col>
                       <Col>
                         <smalll className="text-muted">Price</smalll>
-                        <p className="fw-bold fs-5">{`$${totalPayment}`}</p>
+                        <p className="fw-bold fs-5">{`Rp. ${totalPayment}`}</p>
                       </Col>
                     </Row>
                     <div className="border-rad_inward-bottom bg-light" />
