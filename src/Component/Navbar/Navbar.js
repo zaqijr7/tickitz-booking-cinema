@@ -12,20 +12,26 @@ import {
   FormControl
 } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import navbarBrand from '../../Assets/Images/logo-navbar.png'
 import avatar from '../../Assets/Images/avatar.jpg'
 import './Navbar.css';
+import { logOut } from '../../Redux/Action/auth'
 
 function NavigationBar ({ children }) {
   const [show, setShow] = useState(false)
   const token = useSelector(state => state.auth.token)
   const photoProfile = useSelector(state => state.auth.profile.photo)
+  const dispatch = useDispatch()
   const handleShow = () => {
     setShow(true)
   }
   const handleClose = () => {
     setShow(false)
+  }
+
+  const handleLogOut = () => {
+    dispatch(logOut())
   }
   return (
     <React.Fragment>
@@ -78,9 +84,14 @@ function NavigationBar ({ children }) {
               </Nav.Link>
               <Nav.Link className="py-2 py-lg-0 me-lg-5 ms-2">
                 {token !== null
-                  ? <Link to="/profile">
-                    <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="rounded-circle avatar" alt="avatar" />
-                  </Link>
+                  ? <>
+                     <Link to="/profile">
+                      <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="rounded-circle avatar me-1" alt="avatar" />
+                      </Link>
+                      <div className="d-block d-md-inline">
+                        <i className="far fa-sign-out fs-5 ms-3 mt-4 mt-md-0" onClick={() => handleLogOut()}></i>
+                      </div>
+                    </>
                   : <Link to="/signup">
                     <button className="btn-signup text-white border-0 rounded-3">Signup</button>
                   </Link>

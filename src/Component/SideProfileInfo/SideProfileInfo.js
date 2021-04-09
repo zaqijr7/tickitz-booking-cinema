@@ -118,7 +118,7 @@ function SideProfileInfo () {
               <hr />
               <Row>
                 Loyalti Points
-                                </Row>
+              </Row>
               <Row>
                 <Card className="card-loyalti border-0 my-3 rounded-3">
                   <Card.Body className="position-relative">

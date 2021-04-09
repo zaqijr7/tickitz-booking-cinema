@@ -55,3 +55,12 @@ export const updatePhoto = (token, id) => {
     })
   }
 }
+
+export const logOut = () => {
+  return async dispatch => {
+    dispatch({
+      type: 'LOGIN',
+      payload: null
+    })
+  }
+}
