@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import LogoFooter from '../../Assets/Images/logo-navbar.png';
@@ -9,7 +10,7 @@ import IgIcon from '../../Assets/Images/igicon.png';
 import TwitIcon from '../../Assets/Images/twiticon.png';
 import YtIcon from '../../Assets/Images/yticon.png';
 
-function Footer() {
+function Footer () {
   return (
     <React.Fragment>
       <div className="footer-1 py-3 px-lg-5">

@@ -1,3 +1,6 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { Card, Row, Col, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,8 +9,7 @@ import http from '../../Helper/http'
 import moment from 'moment'
 import { selectedSeat, totalPayment } from '../../Redux/Action/transaction'
 
-function BodyOrder(props) {
-  const [statusRes, setStatusRes] = useState('')
+function BodyOrder (props) {
   const [cinema, setCinema] = useState('')
   const [seatSold, setSeatSold] = useState('')
   const [price, setPrice] = useState(0)
@@ -20,7 +22,6 @@ function BodyOrder(props) {
   const dispatch = useDispatch()
   const [seat, setSeat] = useState([])
 
-
   const getDataSeatsIsSold = async (selectedMovie, cinemaName, selectedShowTime, showDate) => {
     try {
       const seatIsSold = await http().get(`/seat/sold?movie=${selectedMovie}&cinema=${cinemaName}&showTime=${selectedShowTime}&showDate=${showDate}`)
@@ -30,7 +31,7 @@ function BodyOrder(props) {
         setSeatSold('a, b')
       }
     } catch (err) {
-      setStatusRes(500)
+      console.log(err);
     }
   }
 
@@ -65,16 +66,14 @@ function BodyOrder(props) {
       const detailCinema = await http().get(`cinemas/${idCinema}`)
       setCinema(detailCinema.data.results.logo)
     } catch (err) {
-      setStatusRes(500)
+      console.log(err);
     }
   }
 
   useEffect(() => {
     detailCinema(idCinema)
-
   }, [])
   // console.log(seatSold, '<<<<<< ini seat sold');
-
 
   useEffect(() => {
     getDataSeatsIsSold(titleMovie, cinemaName, showtimeName, showDate)
@@ -125,10 +124,9 @@ function BodyOrder(props) {
                             return (
                               <>
                                 {
-                                  seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
-                                    <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={`seat-layout btn-seat-layout btn-seat`} disabled />
-                                    :
-                                    <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={`seat-layout btn-seat-layout btn-seat`} />
+                                  seatSold.split(',').indexOf(`${row}${column}`) > -1
+                                    ? <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={'seat-layout btn-seat-layout btn-seat'} disabled />
+                                    : <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className={'seat-layout btn-seat-layout btn-seat'} />
                                 }
                               </>
                             )
@@ -160,22 +158,19 @@ function BodyOrder(props) {
                             return (
                               <>
                                 {
-                                  row === 'F' && column === 10 ?
-                                    <>
+                                  row === 'F' && column === 10
+                                    ? <>
                                       {
-                                        seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
-                                          <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} disabled />
-                                          :
-                                          <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} />
+                                        seatSold.split(',').indexOf(`${row}${column}`) > -1
+                                          ? <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} disabled />
+                                          : <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout_love-nest btn-seat-layout_love-nest btn-seat bg-gray-light" style={{ width: 60 }} />
                                       }
                                     </>
-                                    :
-                                    <>
+                                    : <>
                                       {
-                                        seatSold.split(',').indexOf(`${row}${column}`) > -1 ?
-                                          <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" disabled />
-                                          :
-                                          <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" />
+                                        seatSold.split(',').indexOf(`${row}${column}`) > -1
+                                          ? <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" disabled />
+                                          : <input type="checkbox" id={`${row}${column}`} onClick={(event) => handleClickChooseSeat(event)} className="seat-layout btn-seat-layout btn-seat bg-gray-light" />
                                       }
                                     </>
                                 }
@@ -203,20 +198,20 @@ function BodyOrder(props) {
             </Row>
             <Row className="justify-content-center">
               Seating Key
-                            </Row>
+            </Row>
             <Row className="mx-3 my-3 justify-content-center">
               <Col md="auto" className="d-flex mt-3">
                 <div className="seat-layout bg-gray-light me-2" /> Available
-                                </Col>
+              </Col>
               <Col md="auto" className="d-flex mt-3">
                 <div className="seat-layout bg-theme me-2" /> Selected
-                                </Col>
+              </Col>
               <Col md="auto" className="d-flex mt-3">
                 <div className="seat-layout bg-pink me-2" /> Love Nest
-                                </Col>
+              </Col>
               <Col md="auto" className="d-flex mt-3">
                 <div className="seat-layout bg-dark-ash me-2" /> Sold
-                                </Col>
+              </Col>
             </Row>
           </Col>
         </Row>
@@ -226,7 +221,7 @@ function BodyOrder(props) {
           </Col>
           <Col lg={2} className="d-lg-block d-none" />
           <Col md={12} lg={5} className="d-grid p-0 my-3 my-lg-0">
-            <Link className="btn bg-theme text-white fw-bold rounded py-2 border-0" to={`/payment`}>Book Now</Link>
+            <Link className={`btn text-white fw-bold rounded py-2 border-0 ${seat.length === 0 ? 'bg-secondary disabled' : 'bg-theme'}`} to={'/payment'}>Book Now</Link>
           </Col>
         </Row>
       </Col>
@@ -271,7 +266,7 @@ function BodyOrder(props) {
                     <small className="text-muted">One ticket price</small>
                   </Col>
                   <Col xs={7} className="col-7 text-end">
-                    <p className>{`$${priceMovie}`}</p>
+                    <p className>{`Rp. ${priceMovie}`}</p>
                   </Col>
                 </Row>
                 <Row className="my-1">
@@ -290,7 +285,7 @@ function BodyOrder(props) {
                     <p className="fs-5">Total Payment</p>
                   </Col>
                   <Col xs={7} className="text-end">
-                    <p className="fs-5 fw-bold font-color-costum">{`$${price} `}</p>
+                    <p className="fs-5 fw-bold font-color-costum">{`Rp. ${price} `}</p>
                   </Col>
                 </Row>
               </Container>

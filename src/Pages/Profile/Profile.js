@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 import './Profile.css'
 import BodyProfile from '../../Component/BodyProfile/BodyProfile';
@@ -6,7 +7,7 @@ import Footer from '../../Component/Footer/Footer';
 import NavigationBar from '../../Component/Navbar/Navbar';
 
 export default class Profile extends Component {
-  render() {
+  render () {
     return (
       <>
         <NavigationBar>

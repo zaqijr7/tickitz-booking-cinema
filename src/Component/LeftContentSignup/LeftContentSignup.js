@@ -1,9 +1,9 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import logo from '../../Assets/Images/logo.png';
 import './LeftContentSignup.css';
 
-function LeftContentSignup() {
-
+function LeftContentSignup () {
   return (
     <React.Fragment>
       <div className="mt-5 ms-5">

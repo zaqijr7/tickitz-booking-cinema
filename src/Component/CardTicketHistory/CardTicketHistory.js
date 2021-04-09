@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
+import React from 'react'
 import { Col, Card, Row, Button } from 'react-bootstrap'
 import moment from 'moment'
 
-
-function CardTicketHistory(props) {
+function CardTicketHistory (props) {
   return (
     <>
       <Row className="my-3">
@@ -18,12 +19,11 @@ function CardTicketHistory(props) {
           <Card.Body className="px-4">
             <Row className="d-flex justify-content-lg-between align-items-center">
               {
-                props.used ?
-                  <Col>
+                props.used
+                  ? <Col>
                     <Button variant="secondary" className="py-2 btn-ticket">Ticket used</Button>
                   </Col>
-                  :
-                  <Col>
+                  : <Col>
                     <Button variant="success" className="py-2 btn-ticket">Ticket in active</Button>
                   </Col>
               }
@@ -42,6 +42,5 @@ function CardTicketHistory(props) {
     </>
   )
 }
-
 
 export default CardTicketHistory

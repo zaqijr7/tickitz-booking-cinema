@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import Logo from '../../Assets/Images/logo.png';
@@ -6,9 +7,7 @@ import { useSelector } from 'react-redux';
 import moment from 'moment'
 import http from '../../Helper/http'
 
-
-function TicketCard() {
-  const [statusres, setStatusres] = useState('')
+function TicketCard () {
   const [showTime, setShowTime] = useState('')
   const idshowtime = useSelector(state => state.transaction.id_showtime)
   const dateShow = useSelector(state => state.schedule.showDate)
@@ -20,7 +19,7 @@ function TicketCard() {
       const dataShowTime = await http().get(`/showtime/${idShowtime}`)
       setShowTime(dataShowTime.data.results.name);
     } catch (err) {
-      setStatusres(404)
+      console.log(err)
     }
   }
   useEffect(() => {
@@ -46,7 +45,7 @@ function TicketCard() {
                     </Col>
                     <Col className="d-flex align-items-center justify-content-end text-white">
                       Admit One
-                                        </Col>
+                    </Col>
                   </Col>
                   <Col xs={4} className="d-flex justify-content-center align-items-center bg-theme border-rad_top-right">
                     <img src={Logo} className="ticket-logo" alt="icon" />

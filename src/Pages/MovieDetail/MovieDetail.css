@@ -17,6 +17,13 @@
     height: 40px !important;
 }
 
+.btn-booknow-disabled {
+    background-color: gray;
+    font-weight: 600;
+    width: 134px !important;
+    height: 40px !important;
+}
+
 .btn-search{
     background-color: #5F2EEA;
     font-weight: 600;

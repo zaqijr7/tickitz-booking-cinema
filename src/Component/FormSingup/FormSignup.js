@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import { Form, Row, Col, Alert } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
@@ -5,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import './FormSignup.css';
 import { register, resetMsg, cleanMsg } from '../../Redux/Action/register';
 
-function FormSignup() {
+function FormSignup () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -67,17 +68,16 @@ function FormSignup() {
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox" className="mb-3">
               <input type="checkbox" className="form-check-input checkbox-costum me-3" id="exampleCheck1" />
-              <label className="form-check-label" for="exampleCheck1">I agree to terms & conditions</label>
+              <label className="form-check-label" htmlFor="exampleCheck1">I agree to terms & conditions</label>
             </Form.Group>
               {
-                isLoading === true ?
-                  <div className="d-flex justify-content-center align-items-center my-3">
-                    <div class="spinner-border text-primary" role="status">
-                      <span class="visually-hidden">Loading...</span>
+                isLoading === true
+                  ? <div className="d-flex justify-content-center align-items-center my-3">
+                    <div className="spinner-border text-primary" role="status">
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   </div>
-                :
-                  <div className="d-grid">
+                  : <div className="d-grid">
                     <button type="submit" onClick={() => handleClick()} className="btn-costum-color input-costum border-0" size="lg" block>
                       Join for free now
                     </button>

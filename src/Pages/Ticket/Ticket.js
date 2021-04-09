@@ -1,4 +1,5 @@
-import React, { Component, useEffect, useState } from 'react';
+/* eslint-disable no-use-before-define */
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import Footer from '../../Component/Footer/Footer';
@@ -8,8 +9,7 @@ import jwt from 'jsonwebtoken'
 import './Ticket.css';
 import http from '../../Helper/http';
 
-function Ticket() {
-  const [statusres, setStatusres] = useState('')
+function Ticket () {
   const idshowtime = useSelector(state => state.transaction.id_showtime)
   const dateShow = useSelector(state => state.schedule.showDate)
   const idcinema = useSelector(state => state.transaction.id_cinema)
@@ -31,10 +31,9 @@ function Ticket() {
     params.append('seat', seat)
     params.append('totalPayment', totalPayment)
     try {
-      const results = await http(tokenUser).post(`transaction`, params)
-      console.log(results);
+      await http(tokenUser).post('transaction', params)
     } catch (err) {
-      setStatusres(500)
+      console.log(err);
     }
   }
 

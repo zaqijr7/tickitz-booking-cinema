@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import './FormForgot.css';
 
-function FormForgot() {
+function FormForgot () {
   return (
     <React.Fragment>
       <Row className="mb-3">

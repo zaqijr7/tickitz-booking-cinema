@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import BodyPayment from '../../Component/BodyPayment/BodyPayment';
@@ -6,7 +7,7 @@ import Footer from '../../Component/Footer/Footer';
 import NavigationBar from '../../Component/Navbar/Navbar';
 import './Payment.css';
 
-function Payment() {
+function Payment () {
   return (
     <>
       <NavigationBar>

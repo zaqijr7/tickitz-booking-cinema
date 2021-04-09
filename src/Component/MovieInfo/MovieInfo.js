@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Card } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -6,7 +7,7 @@ import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { selectedMovie } from '../../Redux/Action/movieSelected'
 
-function MovieInfo() {
+function MovieInfo () {
   const { id } = useParams()
   const [movie, setMovie] = useState({})
   const dispatch = useDispatch()

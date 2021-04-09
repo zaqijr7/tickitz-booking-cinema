@@ -1,7 +1,8 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/jsx-key */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import './UpcomingMovie.css';
-
 
 const listMonth = ['September',
   'October',
@@ -23,7 +24,7 @@ const listFilm = [
   { title: 'Tenet', genre: 'Action, Sci-Fi' }
 ]
 
-function UpcomingMovie() {
+function UpcomingMovie () {
   return (
     <div className="content-row-3 mt-5">
       <Row>
@@ -61,7 +62,7 @@ function UpcomingMovie() {
             {
               listFilm.map((value, index) => {
                 return (
-                  <Col className="cover-upcoming mx-3 d-block">
+                  <Col className="cover-upcoming mx-3 d-block" key={index.toString()}>
                     <div className={`upcoming-movie-${index + 1} mx-auto`} />
                     <div className="fw-bold fs-5  text-center mt-3">{value.title}</div>
                     <div className="fs-6 text-center text-secondary mt-2">{value.genre}</div>
@@ -75,7 +76,7 @@ function UpcomingMovie() {
             {
               listFilm.map((value, index) => {
                 return (
-                  <Col className="cover-upcoming mx-3 d-block">
+                  <Col className="cover-upcoming mx-3 d-block" key={index.toString()}>
                     <div className={`upcoming-movie-${index + 1} mx-auto`} />
                     <div className="fw-bold fs-5  text-center mt-3">{value.title}</div>
                     <div className="fs-6 text-center text-secondary mt-2">{value.genre}</div>

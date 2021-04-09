@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable no-use-before-define */
+import React, { useState } from 'react';
 import { Alert, Card, Col, Row, Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import http from '../../Helper/http';
 import { updateProfileUser } from '../../Redux/Action/auth'
 
-function FormAccountSet() {
+function FormAccountSet () {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -23,9 +24,7 @@ function FormAccountSet() {
   const token = useSelector(state => state.auth.token)
   const dispatch = useDispatch()
 
-
   const handleInput = (event) => {
-
     if (event.target.name === 'firstName') {
       setFirstName(event.target.value)
       setStatusRes('')
@@ -50,7 +49,7 @@ function FormAccountSet() {
     params.append('email', email || defaultEmail)
     params.append('password', confirmPassword)
     try {
-      const updateProfile = await http(token).put(`/profile`, params)
+      const updateProfile = await http(token).put('/profile', params)
       dispatch(updateProfileUser(updateProfile.data.results))
       setStatusRes(updateProfile.status)
       const response = updateProfile.data
@@ -64,7 +63,6 @@ function FormAccountSet() {
     }
   }
 
-
   const setTypePass = () => {
     if (showPass) {
       setShowPass(!showPass)
@@ -74,11 +72,6 @@ function FormAccountSet() {
       setType('text')
     }
   }
-
-  console.log(statusRes, '<<< ini response status');
-  console.log(messageRes, '<<< ini response pesan');
-
-
 
   return (
     <>
@@ -98,16 +91,14 @@ function FormAccountSet() {
               <hr />
             </Row>
             {
-              defaultFirstName && defaultLastName && defaultPhoneNumber === 'UNDEFINED' ?
-                <Alert variant="warning">Profile data has not been updated</Alert>
-                :
-                ''
+              defaultFirstName && defaultLastName && defaultPhoneNumber === 'UNDEFINED'
+                ? <Alert variant="warning">Profile data has not been updated</Alert>
+                : ''
             }
             {
-              statusRes === 200 ?
-                <Alert variant="success">{messageRes}</Alert>
-                :
-                ''
+              statusRes === 200
+                ? <Alert variant="success">{messageRes}</Alert>
+                : ''
             }
             <Row>
               <Col>
@@ -149,7 +140,7 @@ function FormAccountSet() {
                   <Row>
                     <Col className="mt-3">
                       Account and Privacy
-                                                    <hr />
+                      <hr />
                     </Col>
                   </Row>
                   <Row>
@@ -167,10 +158,9 @@ function FormAccountSet() {
                         <Form.Label>Confirm Password</Form.Label>
                         <div className="d-flex input-group-pass justify-content-end align-items-center">
                           {
-                            password === confirmPassword ?
-                              <Form.Control type={type} className="form-control form-profile" placeholder="Write your password" name="confirmPassword" onChange={(event) => handleInput(event)} />
-                              :
-                              <Form.Control type={type} className="form-control form-profile border border-danger border-3" placeholder="Write your password" name="confirmPassword" onChange={(event) => handleInput(event)} />
+                            password === confirmPassword
+                              ? <Form.Control type={type} className="form-control form-profile" placeholder="Write your password" name="confirmPassword" onChange={(event) => handleInput(event)} />
+                              : <Form.Control type={type} className="form-control form-profile border border-danger border-3" placeholder="Write your password" name="confirmPassword" onChange={(event) => handleInput(event)} />
                           }
 
                           <span className="far fa-eye icon-eye me-3 text-muted" onClick={() => setTypePass()} />
@@ -181,12 +171,11 @@ function FormAccountSet() {
                   <Row>
                     <Col xs={6} className="d-grid mt-3">
                       {
-                        password === confirmPassword ?
-                          <Button variant="trasnparent" className="py-2 btn-update text-white mb-3" onClick={() => updateProfile()}>
+                        password === confirmPassword
+                          ? <Button variant="trasnparent" className="py-2 btn-update text-white mb-3" onClick={() => updateProfile()}>
                             Update Changes
                           </Button>
-                          :
-                          <Button variant="trasnparent" className="py-2 btn-update text-white mb-3" disabled>
+                          : <Button variant="trasnparent" className="py-2 btn-update text-white mb-3" disabled>
                             Update Changes
                           </Button>
                       }

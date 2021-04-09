@@ -1,48 +1,34 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { Card, Row, Col, Container, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { selectedTime, selectedCinema, selectedCinemaName, selectedShowTimeName } from '../../Redux/Action/transaction'
+import { selectedTime, selectedCinema, selectedCinemaName } from '../../Redux/Action/transaction'
 import http from '../../Helper/http'
 
-
-function CinemaCard(props) {
+function CinemaCard (props) {
   const { id } = useParams()
-  const [time, setTime] = useState('')
+  const [isTime, setIsTime] = useState('')
   const dispatch = useDispatch()
   const cinemaId = useSelector(state => state.transaction.id_cinema)
 
   const handleClickTime = (event) => {
     event.preventDefault()
-    setTime(event.target.id)
+    setIsTime(event.target.id)
     dispatch(selectedTime(event.target.id))
     dispatch(selectedCinema(props.idCinema))
   }
-
-  // const selectCinema = () => {
-
-  // }
 
   const getNameCinema = async (idCinema) => {
     const dataCinema = await http().get(`/cinemas/${idCinema}`)
     dispatch(selectedCinemaName(dataCinema.data.results.name))
   }
 
-
-  // const getNameShowtime = async (dataShowTime) => {
-  //     try {
-  //         const dataTime = await http().get(`showtime/${dataShowTime}`)
-  //         setShowTime(dataTime.data.results.name)
-  //     } catch (err) {
-  //         setStatusRes(500)
-  //     }
-  // }
-
   useEffect(() => {
     getNameCinema(cinemaId)
-    // showtimeName(time)
   }, [cinemaId])
-
+  console.log(isTime, '<ini wajtuy');
   return (
     <React.Fragment>
       <Col lg={4} className="my-3">
@@ -63,10 +49,10 @@ function CinemaCard(props) {
                 </Row>
                 <Row className="my-3">
                   {
-                    props.listShowTime.map(time => {
+                    props.listShowTime.map((time, index) => {
                       return (
-                        <Col xs={4} className='py-3' style={{ fontSize: 12 }}>
-                          <button id={time[0].id} className={`text-muted text-center bg-transparent border-0 btn-time`} onClick={(e) => handleClickTime(e)}>{time[0].name}</button>
+                        <Col xs={4} className='py-3' style={{ fontSize: 12 }} key={index.toString()}>
+                          <button id={time[0].id} className={`text-center btn-time border ${time[0].id === Number(isTime) ? 'border-1 bg-dark text-white' : 'text-muted border-0 bg-transparent'}`} onClick={(e) => handleClickTime(e)}>{time[0].name}</button>
                         </Col>
                       )
                     })
@@ -77,19 +63,17 @@ function CinemaCard(props) {
                     <p className="text-muted">Price</p>
                   </Col>
                   <Col xs={6} className="d-flex justify-content-end">
-                    <p className="text-right fw-bold">{`$${props.price}.00/seat`}</p>
+                    <p className="text-right fw-bold">{`Rp. ${props.price}.00/seat`}</p>
                   </Col>
                 </Row>
                 <Row className="mt-4">
                   <Col xs={6} className="d-flex justify-content-center align-items-center">
                     {
-                      time
-                        ?
-                        <Link to={`/moviedetail/${id}/order/`}>
+                      isTime
+                        ? <Link to={`/moviedetail/${id}/order/`}>
                           <button className="btn-booknow text-white border-0 rounded-3">Book Now</button>
                         </Link>
-                        :
-                        <button className="btn-booknow text-white border-0 rounded-3" disabled>Book Now</button>
+                        : <button className="btn-booknow-disabled text-white border-0 rounded-3" disabled>Book Now</button>
                     }
                   </Col>
                   <Col xs={6} className="d-flex justify-content-end">

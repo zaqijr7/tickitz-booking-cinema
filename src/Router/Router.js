@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NavigationBar from '../Component/Navbar/Navbar';
@@ -12,17 +13,21 @@ import OrderHistory from '../Pages/OrderHistory/OrderHistory';
 import Payment from '../Pages/Payment/Payment';
 import Profile from '../Pages/Profile/Profile';
 import Ticket from '../Pages/Ticket/Ticket';
+import ViewAll from '../Pages/ViewAll';
 import PrivateRoute from './PrivateRoute';
 
-
 class Router extends Component {
-
-   render() {
-      return (
+  render () {
+    return (
          <Switch>
             <Route exact path='/'>
                <NavigationBar>
                   <Home />
+               </NavigationBar>
+            </Route>
+            <Route exact path='/home/viewall'>
+               <NavigationBar>
+                  <ViewAll/>
                </NavigationBar>
             </Route>
             <Route exact path='/signin'>
@@ -47,8 +52,8 @@ class Router extends Component {
                </NavigationBar>
             </Route>
          </Switch>
-      )
-   }
+    )
+  }
 }
 
 export default Router;

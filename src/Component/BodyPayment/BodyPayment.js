@@ -1,15 +1,15 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Card, Col, Form, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-
-function BodyPayment({ children }) {
+function BodyPayment ({ children }) {
   const dateShow = useSelector(state => state.schedule.showDate)
   const titleMovie = useSelector(state => state.selectedMovie.detailMovie.title)
   const dataTicket = useSelector(state => state.transaction.id_seat)
-  const priceMovie = useSelector(state => state.selectedMovie.detailMovie.price)
   const showtimeName = useSelector(state => state.transaction.showtimeName)
   const cinemaName = useSelector(state => state.transaction.cinemaName)
   const totalPayment = useSelector(state => state.transaction.totalPayment)
@@ -145,8 +145,8 @@ function BodyPayment({ children }) {
                   </div>
                   <Col className="warning-div py-2 px-3 rounded-3">
                     <i className="fas fa-exclamation-triangle me-3" style={{ color: '#F4B740' }} />
-                                        Fill your data correctly.
-                                    </Col>
+                    Fill your data correctly.
+                  </Col>
                 </Form>
               </Row>
             </Card.Body>

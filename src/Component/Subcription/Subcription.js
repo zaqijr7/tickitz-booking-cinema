@@ -1,8 +1,9 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Container, Card } from 'react-bootstrap';
 import './Subscription.css';
 
-function Subcription() {
+function Subcription () {
   return (
     <div className="py-5" id="moviegoer">
       <Container fluid className="d-flex justify-content-center align-items-center">

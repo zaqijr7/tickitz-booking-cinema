@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 import './Order.css'
 import { Container } from 'react-bootstrap';
@@ -6,8 +7,7 @@ import Footer from '../../Component/Footer/Footer';
 import NavigationBar from '../../Component/Navbar/Navbar';
 
 class Order extends Component {
-
-  render() {
+  render () {
     return (
       <>
         <NavigationBar>
@@ -23,7 +23,6 @@ class Order extends Component {
       </>
     )
   }
-
 }
 
 export default Order;

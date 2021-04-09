@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Card, Row, Col, Form, Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
@@ -5,7 +7,7 @@ import MapIcon from '../../Assets/Images/location.png'
 
 import http from '../../Helper/http';
 
-function BodyAdmin() {
+function BodyAdmin () {
   const [listGenre, setListGenre] = useState(null)
   const [listLocation, setListLocation] = useState(null)
   const [listCinema, setListCinema] = useState(null)
@@ -28,7 +30,7 @@ function BodyAdmin() {
   const fileUrl = file !== null ? URL.createObjectURL(file) : ''
   const getListGenre = async () => {
     try {
-      const genres = await http().get(`genre`)
+      const genres = await http().get('genre')
       setListGenre(genres.data.results)
     } catch (err) {
       setListGenre([])
@@ -72,7 +74,7 @@ function BodyAdmin() {
 
   const getShowTime = async () => {
     try {
-      const showTimes = await http(token).get(`admin/shw-time/`)
+      const showTimes = await http(token).get('admin/shw-time/')
       setListTimes(showTimes.data.results)
       console.log(listTimes);
     } catch (err) {
@@ -161,7 +163,7 @@ function BodyAdmin() {
                     </Card>
                     <div className="file-input d-flex justify-content-center align-items-center mb-3">
                       <input className="input-photo_profile" type="file" name="thumbnail" onChange={(event) => setFile(event.target.files[0])} />
-                      <label for="thumbnail" className="text-white fw-bold  d-flex justify-content-center align-items-center">
+                      <label htmlFor="thumbnail" className="text-white fw-bold  d-flex justify-content-center align-items-center">
                         <i className="fas fa-upload me-3"></i>
                           Thumbnail
                       </label>
@@ -184,8 +186,9 @@ function BodyAdmin() {
                               Insert Genre
                                                         </button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              {listGenre === null ? 'Loading...' :
-                                listGenre.map((genre, index) => {
+                              {listGenre === null
+                                ? 'Loading...'
+                                : listGenre.map((genre, index) => {
                                   return (
                                     <div className="d-flex align-items-center dropdown-item" key={index}>
                                       <input type="checkbox" className="checkbox-genre" name="genreMovie" id={genre.id} onChange={(event) => handleMovieDescription(event)} />
@@ -256,8 +259,9 @@ function BodyAdmin() {
                       <Form.Group className="bg-light border-0 position-relative d-flex align-items-center">
                         <img src={MapIcon} className=" position-absolute mx-3 text-muted" alt="map icon" />
                         <select className="custom-select form-control py-2 ps-5 border-0 text-muted" id="inputGroupSelect02" style={{ backgroundColor: '#f0f0f0' }} name="city" onChange={(event) => handleSchedule(event)}>
-                          {listLocation === null ? 'Loading...' :
-                            listLocation.map((city, index) => {
+                          {listLocation === null
+                            ? 'Loading...'
+                            : listLocation.map((city, index) => {
                               return (
                                 <>
                                   <option key={index} selected value={`${city.city}`}>{city.city}</option>
@@ -273,10 +277,11 @@ function BodyAdmin() {
                 </Row>
                 <Row>
                   {
-                    listCinema === null ? 'Loading' :
-                      listCinema.map(items => {
+                    listCinema === null
+                      ? 'Loading'
+                      : listCinema.map((items, index) => {
                         return (
-                          <Col lg={4}>
+                          <Col lg={4} key={index.toString()}>
                             <label>
                               <input type="radio" className="selected-movie" id={items.id} name="selectCinema" value="small" />
                               <img src={items.logo} className="logo-cinema_admin my-4" alt="logo cinema" />
@@ -307,10 +312,11 @@ function BodyAdmin() {
                 </Row>
                 <Row>
                   {
-                    listTimes === null ? 'Loading' :
-                      listTimes.map((time, index) => {
+                    listTimes === null
+                      ? 'Loading'
+                      : listTimes.map((time, index) => {
                         return (
-                          <Col lg={4} className="my-2">
+                          <Col lg={4} className="my-2" key={index.toString()}>
                             <div className="d-flex align-items-center mt-3 position-relative" key={index}>
                               <input type="checkbox" className="checkbox-time position-absolute" name="timeShow" id={time.id} onChange={(event) => handleSchedule(event)} />
                               <label className="checkbox-time_label">{time.name}</label>

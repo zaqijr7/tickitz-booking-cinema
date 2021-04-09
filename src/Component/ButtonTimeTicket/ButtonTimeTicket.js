@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -5,8 +6,7 @@ import { inputDate, inputCity } from '../../Redux/Action/findSchedule'
 import moment from 'moment'
 import MapIcon from '../../Assets/Images/location.png'
 
-
-function ButtonTimeTicket() {
+function ButtonTimeTicket () {
   const dateShow = useSelector(state => state.selectedMovie.dateSchedule)
   const cityShow = useSelector(state => state.selectedMovie.dataCitySchedule)
   const dispatch = useDispatch()
@@ -46,11 +46,12 @@ function ButtonTimeTicket() {
           <Col lg={3} className="position-relative d-flex align-items-center my-sm-4 my-lg-0">
             <img src={MapIcon} className=" position-absolute mx-3 text-muted" alt="map icon" />
             <select className="custom-select form-control py-2 ps-5 py-3 border-0 text-muted" id="inputGroupSelect02" style={{ backgroundColor: '#f0f0f0' }} name="city" onChange={(date) => handleClick(date)}>
+            <option selected value="Choose Location">Choose Location</option>
               {
                 cityShow.map((city, index) => {
                   return (
                     <>
-                      <option key={index} selected value={`${city}`}>{city}</option>
+                      <option key={index} value={`${city}`}>{city}</option>
                     </>
                   )
                 })

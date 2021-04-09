@@ -1,0 +1,30 @@
+.background-color-primary {
+  background-color: #5F2EEA !important;
+}
+
+.height-costum {
+  height: 50px !important;
+}
+
+.btn-paging-active {
+  height: 50px !important;
+  width: 50px !important;
+  background-color: #5F2EEA !important;
+  border-radius: 10px !important;
+}
+.btn-paging {
+  height: 50px !important;
+  width: 50px !important;
+  border-radius: 10px !important;
+  border: 3px solid #5F2EEA !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .p-costum {
+    padding: 0 250px;
+  }
+  .btn-sort {
+    height: 50px !important;
+    width: 50px !important;
+  }
+}

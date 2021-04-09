@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 import BodyOrderHistory from '../../Component/BodyOrderHistory/BodyOrderHistory'
@@ -5,7 +6,7 @@ import Footer from '../../Component/Footer/Footer'
 import NavigationBar from '../../Component/Navbar/Navbar'
 
 export default class OrderHistory extends Component {
-  render() {
+  render () {
     return (
       <>
         <NavigationBar>

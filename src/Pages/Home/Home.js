@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import http from '../../Helper/http';
@@ -8,11 +9,10 @@ import NowShow from '../../Component/NowShow/NowShow';
 import Subcription from '../../Component/Subcription/Subcription';
 import UpcomingMovie from '../../Component/UpcomingMovie/UpcomingMovie';
 
-
-function Home() {
+function Home () {
   const [nowshow, setNowshow] = useState([])
   const fetchDataNowshow = async () => {
-    const movieNowshow = await http().get(`nowshow`)
+    const movieNowshow = await http().get('nowshow')
     setNowshow(movieNowshow.data.results)
   }
   useEffect(() => {
@@ -24,9 +24,9 @@ function Home() {
         <RowTitle />
         <NowShow>
           {
-            nowshow.map((value) => {
+            nowshow.map((value, index) => {
               return (
-                <FilmNowShow id={value.id} poster={value.poster} />
+                <FilmNowShow key={index.toString()} id={value.id} poster={value.poster} />
               )
             })
           }

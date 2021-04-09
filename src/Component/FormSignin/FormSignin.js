@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Form, Alert } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
@@ -6,7 +7,7 @@ import { login } from '../../Redux/Action/auth'
 import './FormSignin.css';
 import { cleanMsg } from '../../Redux/Action/register'
 
-function FormSignin() {
+function FormSignin () {
   const [showpass, setShowpass] = useState(false)
   const [isLoading, setIsLoadning] = useState(false)
   const [type, setType] = useState('password')
@@ -89,14 +90,13 @@ function FormSignin() {
                   <span className="far fa-eye icon-eye me-3 text-muted" onClick={handleClick} />
                 </div>
               </Form.Group>
-              {isLoading === true ?
-                <div className="d-flex justify-content-center align-items-center mt-3">
-                  <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
+              {isLoading === true
+                ? <div className="d-flex justify-content-center align-items-center mt-3">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
                   </div>
                 </div>
-                :
-                <div className="d-grid">
+                : <div className="d-grid">
                   <button type="submit" onClick={() => clickSubmit()} className="btn-costum-color input-costum border-0" size="lg" block>
                     Signin
                   </button>

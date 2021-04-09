@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 import {
   Container,
@@ -15,7 +17,7 @@ import navbarBrand from '../../Assets/Images/logo-navbar.png'
 import avatar from '../../Assets/Images/avatar.jpg'
 import './Navbar.css';
 
-function NavigationBar({ children }) {
+function NavigationBar ({ children }) {
   const [show, setShow] = useState(false)
   const token = useSelector(state => state.auth.token)
   const photoProfile = useSelector(state => state.auth.profile.photo)
@@ -75,12 +77,11 @@ function NavigationBar({ children }) {
                 </Modal>
               </Nav.Link>
               <Nav.Link className="py-2 py-lg-0 me-lg-5 ms-2">
-                {token !== null ?
-                  <Link to="/profile">
+                {token !== null
+                  ? <Link to="/profile">
                     <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="rounded-circle avatar" alt="avatar" />
                   </Link>
-                  :
-                  <Link to="/signup">
+                  : <Link to="/signup">
                     <button className="btn-signup text-white border-0 rounded-3">Signup</button>
                   </Link>
                 }

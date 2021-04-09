@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react'
 import { Card, Col } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
@@ -5,12 +6,12 @@ import { Link } from 'react-router-dom'
 import http from '../../Helper/http'
 import CardTicketHistory from '../CardTicketHistory/CardTicketHistory'
 
-function InfoOrderHistory() {
+function InfoOrderHistory () {
   const [ticket, setTicket] = useState([])
   const token = useSelector(state => state.auth.token)
   const getDataTicketHistory = async (dataToken) => {
     try {
-      const dataTicket = await http(dataToken).get(`ticket/list`)
+      const dataTicket = await http(dataToken).get('ticket/list')
       setTicket(dataTicket.data.results)
     } catch (err) {
       console.log(err)

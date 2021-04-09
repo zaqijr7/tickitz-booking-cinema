@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import SectionLeft from '../../../Component/AuthSectionLeft/SectionLeft';
@@ -5,20 +6,20 @@ import Logo from '../../../Assets/Images/logo.png'
 import './Signin.css';
 import FormSignin from '../../../Component/FormSignin/FormSignin';
 
-function Signin() {
+function Signin () {
   return (
     <React.Fragment>
       <Row className="vw-100">
         <Col lg={7} className="container-side-right d-none d-lg-block">
           <SectionLeft className="d-flex flex-column justify-content-center align-items-center">
             <Row>
-              <div class="logo">
-                <img src={Logo} alt="logo" class="img-logo" />
+              <div className="logo">
+                <img src={Logo} alt="logo" className="img-logo" />
               </div>
             </Row>
             <Row>
-              <div class="slogan">
-                <h1 class="text-slogan">wait, watch, wow!</h1>
+              <div className="slogan">
+                <h1 className="text-slogan">wait, watch, wow!</h1>
               </div>
             </Row>
           </SectionLeft>

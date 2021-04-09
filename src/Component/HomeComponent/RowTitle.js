@@ -1,8 +1,9 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import './RowTitle.css';
 
-function RowTitle() {
+function RowTitle () {
   return (
     <React.Fragment>
       <Row>

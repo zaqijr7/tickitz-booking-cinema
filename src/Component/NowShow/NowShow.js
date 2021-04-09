@@ -1,9 +1,11 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './NowShow.css';
 
-function NowShow({ children }) {
-
+function NowShow ({ children }) {
   return (
     <React.Fragment>
       <div className="content-row-2">
@@ -15,7 +17,7 @@ function NowShow({ children }) {
               </h5>
             </Col>
             <Col lg={6} className="d-flex justify-content-end flex-fill">
-              <p className="me-lg-5 font-color-costums fs-6">View All</p>
+              <Link to="/home/viewall" className="me-lg-5 font-color-costums text-decoration-none fs-6">View All</Link>
             </Col>
           </div>
         </Row>

@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux'
@@ -9,14 +10,14 @@ import { Link } from 'react-router-dom';
 
 import './Admin.css';
 
-function Admin() {
+function Admin () {
   const token = useSelector(state => state.auth.token)
   const data = jwt.decode(token)
   const role = data.role
   return (
     <>
-      { role === 'ADMIN' ?
-        <NavigationBar>
+      { role === 'ADMIN'
+        ? <NavigationBar>
           <div className="body py-5">
             <Container>
               <BodyAdmin />
@@ -26,8 +27,7 @@ function Admin() {
             <Footer />
           </Container>
         </NavigationBar>
-        :
-        <Row className='vh-100 vw-100 d-flex align-items-center bg-dark'>
+        : <Row className='vh-100 vw-100 d-flex align-items-center bg-dark'>
           <div className='text-center'>
             <span className='text-danger fw-bold display-3'>403 Access Forbiden</span> <br />
             <span className='text-white'>Back to <Link to='/'> Home </Link></span>

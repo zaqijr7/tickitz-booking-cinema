@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './FilmNowShow.css';
 import { Row, Col, Card } from 'react-bootstrap';
@@ -5,10 +7,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addMovieToCart } from '../../Redux/Action/transaction';
 
-
-
-
-function FilmNowShow(props) {
+function FilmNowShow (props) {
   const dispatch = useDispatch()
   const handleClick = () => {
     dispatch(addMovieToCart(props.id))

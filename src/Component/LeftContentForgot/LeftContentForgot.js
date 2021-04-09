@@ -1,7 +1,8 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import './LeftContentForgot.css';
 
-function LeftContentForgot() {
+function LeftContentForgot () {
   return (
     <React.Fragment>
       <div className="logo">

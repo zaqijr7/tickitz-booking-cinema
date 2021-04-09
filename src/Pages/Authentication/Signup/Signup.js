@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import SectionLeft from '../../../Component/AuthSectionLeft/SectionLeft';
@@ -5,7 +6,7 @@ import FormSignup from '../../../Component/FormSingup/FormSignup';
 import LeftContentSignup from '../../../Component/LeftContentSignup/LeftContentSignup.js';
 import './Signup.css';
 
-function Signup() {
+function Signup () {
   return (
     <React.Fragment>
       <Row className="vw-100">

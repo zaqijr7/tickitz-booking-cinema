@@ -1,10 +1,11 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import SideProfileInfo from '../SideProfileInfo/SideProfileInfo';
 import FormAccountSet from '../FormAccountSet/FormAccountSet';
 
 export default class BodyProfile extends Component {
-  render() {
+  render () {
     return (
       <Container>
         <Row>

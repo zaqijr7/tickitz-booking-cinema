@@ -1,10 +1,11 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import SectionLeft from '../../../Component/AuthSectionLeft/SectionLeft';
 import FormForgot from '../../../Component/FormForgot/FormForgot';
 import LeftContentForgot from '../../../Component/LeftContentForgot/LeftContentForgot';
 
-function ForgotPass() {
+function ForgotPass () {
   return (
     <React.Fragment>
       <Row className="vw-100">
