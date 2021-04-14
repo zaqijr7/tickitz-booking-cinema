@@ -1,10 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import './FormForgot.css';
 
 function FormForgot () {
+  const [email, setEmail] = useState()
+
+  console.log(email);
   return (
     <React.Fragment>
       <Row className="mb-3">
@@ -22,7 +25,7 @@ function FormForgot () {
           <Form>
             <Form.Group controlId="formBasicEmail" className="mb-3">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" className="form-control input-costum" placeholder="Write your email" />
+              <Form.Control type="email" className="form-control input-costum" placeholder="Write your email" onChange={event => setEmail(event.target.value)} />
             </Form.Group>
             <div className="d-grid">
               <button type="submit" className="btn-costum-color input-costum border-0" size="lg" block>
