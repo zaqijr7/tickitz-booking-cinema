@@ -40,6 +40,12 @@ function FormSignup () {
   }
 
   useEffect(() => {
+    return () => {
+      dispatch(resetMsg())
+    }
+  }, [])
+
+  useEffect(() => {
     if (state) {
       history.push({
         pathname: '/signin'
