@@ -1,13 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
-import { Col, Row, Form } from 'react-bootstrap';
+import { Col, Row, Form, Alert } from 'react-bootstrap';
+import http from '../../Helper/http'
 import './FormForgot.css';
 
 function FormForgot () {
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState('')
+  const [responseMsg, setResponseMsg] = useState('')
 
-  console.log(email);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await http().get(`auth/reset/${email}`)
+      setResponseMsg(response.data.message)
+    } catch (err) {
+      setResponseMsg(err.response.data.message)
+    }
+  }
+
   return (
     <React.Fragment>
       <Row className="mb-3">
@@ -20,9 +31,10 @@ function FormForgot () {
           <p className="text-muted text-lg-start">we'll send a link to your email shortly</p>
         </Col>
       </Row>
+      {responseMsg !== '' && <Row> <Alert variant='warning'>{responseMsg}</Alert> </Row>}
       <Row>
         <Col>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail" className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" className="form-control input-costum" placeholder="Write your email" onChange={event => setEmail(event.target.value)} />
