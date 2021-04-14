@@ -8,6 +8,7 @@ import Signin from '../Pages/Authentication/Signin/Signin';
 import Signup from '../Pages/Authentication/Signup/Signup';
 import Home from '../Pages/Home/Home';
 import MovieDetail from '../Pages/MovieDetail/MovieDetail';
+import ResetPass from '../Pages/ResetPassword/ResetPass';
 import Order from '../Pages/Order/Order';
 import OrderHistory from '../Pages/OrderHistory/OrderHistory';
 import Payment from '../Pages/Payment/Payment';
@@ -38,6 +39,9 @@ class Router extends Component {
             </Route>
             <Route exact path='/forgotpass'>
                <ForgotPass />
+            </Route>
+            <Route exact path='/reset'>
+               <ResetPass />
             </Route>
             <PrivateRoute exact path='/moviedetail/:id' privateComponent={MovieDetail} />
             <PrivateRoute exact path='/moviedetail/:id/order/' privateComponent={Order} />
