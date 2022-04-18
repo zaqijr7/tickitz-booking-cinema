@@ -1,14 +1,25 @@
 /* eslint-disable no-use-before-define */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Row } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { inputDate, inputCity } from '../../Redux/Action/findSchedule'
 import moment from 'moment'
 import MapIcon from '../../Assets/Images/location.png'
+import http from '../../Helper/http'
+import { useParams } from 'react-router-dom'
 
 function ButtonTimeTicket () {
-  const dateShow = useSelector(state => state.selectedMovie.dateSchedule)
-  const cityShow = useSelector(state => state.selectedMovie.dataCitySchedule)
+  const [dateShow, setDateShow] = useState([]);
+  const [cityShow, setCityShow] = useState([]);
+  const { id } = useParams();
+  useEffect(async () => {
+    const response = await http().get(`schedule?idMovie=${id}`);
+    console.log(response);
+    setDateShow(response.data.results.dateShow)
+    setCityShow(response.data.results.city)
+    console.log(dateShow, cityShow);
+  }, [])
+
   const dispatch = useDispatch()
   const handleClick = (event) => {
     if (event.target.name === 'date') {
@@ -31,10 +42,10 @@ function ButtonTimeTicket () {
             <i className="far fa-calendar-minus icon-calendar position-absolute mx-3 text-muted" />
             <select className="custom-select form-control py-2 ps-5 py-3 border-0 text-muted" id="inputGroupSelect02" style={{ backgroundColor: '#f0f0f0' }} name="date" onChange={(date) => handleClick(date)}>
               {
-                dateShow.map((city, index) => {
+                dateShow.map((date, index) => {
                   return (
                     <>
-                      <option key={index} selected value={`${moment(city).format('YYYY-MM-DD')}`}>{moment(city).format('YYYY-MM-DD')}</option>
+                      <option key={index} selected value={`${moment(date).format('YYYY-MM-DD')}`}>{moment(date).format('YYYY-MM-DD')}</option>
                     </>
                   )
                 })

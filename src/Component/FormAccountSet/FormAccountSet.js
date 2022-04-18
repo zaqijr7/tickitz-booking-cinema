@@ -58,7 +58,7 @@ function FormAccountSet () {
         setStatusRes('')
       }, 2000)
     } catch (err) {
-      const { message } = err.data
+      const { message } = err.response.data;
       setMessageRes(message)
     }
   }

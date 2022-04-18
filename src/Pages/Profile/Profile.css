@@ -4,8 +4,16 @@
 }
 
 .photo-profile {
-    width: 136px !important;
-    height: auto !important;
+  width: 136px !important;
+  height: 136px !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.photo-cover {
+  width: 136px !important;
+  height: 136px !important;
+  border-radius: 50%;
 }
 
 .card-loyalti {

@@ -86,7 +86,11 @@ function NavigationBar ({ children }) {
                 {token !== null
                   ? <>
                      <Link to="/profile">
-                      <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="rounded-circle avatar me-1" alt="avatar" />
+                       {photoProfile === 'UNDEFINED'
+                         ? <img src={avatar} className="rounded-circle avatar me-1" alt="avatar" />
+                         : <img src={photoProfile} className="rounded-circle avatar me-1" alt="avatar" />
+
+                      }
                       </Link>
                       <div className="d-block d-md-inline">
                         <i className="far fa-sign-out fs-5 ms-3 mt-4 mt-md-0" onClick={() => handleLogOut()}></i>

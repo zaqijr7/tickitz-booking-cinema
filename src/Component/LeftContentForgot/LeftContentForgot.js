@@ -1,12 +1,13 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import './LeftContentForgot.css';
+import Logo from '../../Assets/Images/logo.png';
 
 function LeftContentForgot () {
   return (
     <React.Fragment>
       <div className="logo">
-        <img src="./src/image/logo.png" alt="logo" className="img-logo" />
+        <img src={Logo} alt="logo" className="img-logo-forgot" />
       </div>
       <div className="paragraph-title">
         <h3 className="title text-white">Lets reset your password</h3>

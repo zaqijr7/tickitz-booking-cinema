@@ -10,6 +10,7 @@ import NavigationBar from '../../Component/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import http from '../../Helper/http';
 import { errorMsg } from '../../Redux/Action/findSchedule';
+import { useParams } from 'react-router-dom';
 
 function MovieDetail () {
   const [schedule, setSchedule] = useState([])
@@ -18,14 +19,16 @@ function MovieDetail () {
   const date = useSelector(state => state.schedule.showDate)
   const city = useSelector(state => state.schedule.city)
   const moviePrice = useSelector(state => state.selectedMovie.detailMovie.price)
-  const idMovie = useSelector(state => state.selectedMovie.detailMovie.id)
+  const { id } = useParams();
+  const messageError = useSelector(state => state.schedule.message)
   const dispatch = useDispatch()
 
-  const fetchDataSchedule = async (idMovie, date, city) => {
+  const fetchDataSchedule = async (id, date, city) => {
     setIsLoading(true)
     try {
+      console.log(id, 'INI ID MOVIE');
       const params = new URLSearchParams()
-      params.append('movie', idMovie)
+      params.append('movie', id)
       params.append('city', city)
       params.append('showDate', date)
       const response = await http().post('schedule', params)
@@ -33,15 +36,15 @@ function MovieDetail () {
       setStatus(response.status)
       setIsLoading(false)
     } catch (err) {
-      setIsLoading(false)
       setSchedule([])
-      setStatus(404)
-      dispatch(errorMsg(schedule.message))
+      setStatus(err.response.status)
+      dispatch(errorMsg(err.response.data.message))
+      setIsLoading(false)
     }
   }
 
   useEffect(() => {
-    fetchDataSchedule(idMovie, date, city)
+    fetchDataSchedule(id, date, city)
   }, [date, city])
   return (
     <React.Fragment>
@@ -57,8 +60,9 @@ function MovieDetail () {
                 </div>
               </div>
               : <>
-                {status === 200
-                  ? schedule.map(item => {
+                {status === 404 && !schedule.length
+                  ? <h1 className="text-center"> {messageError} </h1>
+                  : schedule.map(item => {
                     return (
                       <CinemaCard
                         key={item.id_cinema}
@@ -71,11 +75,9 @@ function MovieDetail () {
                       />
                     )
                   })
-                  : <h1 className="text-center"> Please choose date and location first </h1>
                 }
               </>
             }
-
           </Row>
           <Footer />
         </Container>

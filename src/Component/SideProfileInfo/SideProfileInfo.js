@@ -24,7 +24,6 @@ function SideProfileInfo () {
       form.append('photo', filePhoto)
       await http(token).patch('update/photo', form)
       dispatch(updatePhoto(token, id))
-      setFile(null)
     }
   }
 
@@ -55,15 +54,17 @@ function SideProfileInfo () {
                         </div>
                         <div className="modal-body">
                           <Row className="d-flex justify-content-center align-items-center flex-direction-row">
-                            <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="photo-profile rounded-circle my-3" alt="profile" />
+                            <div className='photo-cover bg-dark d-flex justify-content-center align-items-center mb-3'>
+                              <img src={file === null ? avatar : URL.createObjectURL(file)} className=" photo-profile rounded-circle" alt="profile" />
+                            </div>
 
                             <Form onSubmit={(event) => uploadPhoto(event)}>
                               <div className="file-input d-flex justify-content-center align-items-center">
                                 <input className="input-photo_profile" type="file" name="photo-profile" onChange={(event) => setFile(event.target.files[0])} />
                                 <label htmlFor="photo-profile" className="text-white fw-bold  d-flex justify-content-center align-items-center">
                                   <i className="fas fa-upload me-3"></i>
-                                                                    Update Photo
-                                                                </label>
+                                    Update Photo
+                                </label>
                               </div>
                               {
                                 file !== null
@@ -109,7 +110,9 @@ function SideProfileInfo () {
                 </Col>
               </Row>
               <Row className="d-flex justify-content-center align-items-center">
-                <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="photo-profile rounded-circle my-5" alt="profile" />
+                <div className='photo-cover bg-dark d-flex justify-content-center align-items-center mb-3'>
+                  <img src={photoProfile !== 'UNDEFINED' ? photoProfile : avatar} className="photo-profile rounded-circle my-5" alt="profile" />
+                </div>
               </Row>
               <Row className="mb-4">
                 <h5 className="fw-bold text-center">{firstName}</h5>
